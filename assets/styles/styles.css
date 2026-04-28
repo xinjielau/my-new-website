@@ -1,81 +1,109 @@
-/* Reset some default styles */
-body, h1, h2, p, ul, li, nav, a {
-    margin: 0;
-    padding: 0;
-    font-family: Arial, sans-serif;
+/* General Style Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
-/* Basic styles for layout */
+/* Body and Background */
 body {
-    background-color: #f4f4f4;
-    color: #333;
+  font-family: 'Poppins', sans-serif;
+  background: linear-gradient(to right, #ff7e5f, #feb47b); /* Gradient background */
+  color: #333;
+  line-height: 1.6;
+  padding: 20px;
 }
 
 header {
-    background-color: #4CAF50;
-    padding: 20px;
-    text-align: center;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px;
+  background-color: #fff;
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+  border-radius: 10px;
 }
 
-header .logo img {
-    width: 100px;
-    height: auto;
+header img {
+  width: 120px;
+  height: auto;
 }
 
 nav ul {
-    list-style-type: none;
-    display: flex;
-    justify-content: center;
-    margin-top: 20px;
-}
-
-nav ul li {
-    margin-right: 15px;
+  list-style: none;
+  display: flex;
+  gap: 20px;
 }
 
 nav ul li a {
-    color: white;
-    text-decoration: none;
-    font-size: 18px;
+  text-decoration: none;
+  color: #333;
+  font-size: 18px;
+  font-weight: 600;
+  transition: color 0.3s;
 }
 
+nav ul li a:hover {
+  color: #ff7e5f; /* Hover effect */
+}
+
+/* Section Styling */
+section {
+  margin-top: 50px;
+}
+
+section h2 {
+  text-align: center;
+  font-size: 2.5rem;
+  color: #fff;
+  margin-bottom: 20px;
+  text-transform: uppercase;
+  font-weight: bold;
+}
+
+section p {
+  text-align: center;
+  font-size: 1.1rem;
+  color: #fff;
+  margin: 10px auto;
+  max-width: 800px;
+}
+
+a.button {
+  display: inline-block;
+  padding: 15px 30px;
+  background-color: #ff7e5f;
+  color: #fff;
+  font-weight: bold;
+  text-decoration: none;
+  border-radius: 5px;
+  transition: background-color 0.3s;
+  text-align: center;
+}
+
+a.button:hover {
+  background-color: #feb47b;
+}
+
+/* Footer */
 footer {
-    background-color: #333;
-    color: white;
+  text-align: center;
+  margin-top: 50px;
+  padding: 20px;
+  background-color: #333;
+  color: #fff;
+  border-radius: 10px;
+}
+
+/* Media Queries */
+@media (max-width: 768px) {
+  header {
+    flex-direction: column;
     text-align: center;
-    padding: 10px;
-    position: fixed;
-    bottom: 0;
-    width: 100%;
-}
+  }
 
-main {
-    padding: 20px;
-}
-
-/* Section styling */
-.intro {
-    text-align: center;
-}
-
-.feature {
-    margin-top: 40px;
-    text-align: center;
-}
-
-.activity-details, .video-gallery, .member-profile {
-    margin-top: 40px;
-}
-
-.activity-media img, .profile-picture img {
-    width: 100%;
-    max-width: 600px;
-    height: auto;
-}
-
-/* Video player */
-video {
-    width: 100%;
-    max-width: 600px;
-    height: auto;
+  nav ul {
+    flex-direction: column;
+    gap: 10px;
+  }
 }
