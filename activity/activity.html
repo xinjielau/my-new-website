@@ -3,10 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>活动 - ShePower</title>
-    
+    <title>活动中心 - ShePower</title>
     <link rel="stylesheet" href="activity-styles.css">
-    
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head>
 <body>
@@ -27,36 +25,72 @@
     </header>
 
     <section class="activity-hero">
-        <h1>活动</h1>
-        <p>参与我们的活动，学习新技能、结识新朋友。</p>
-        <div class="filter-tags">
-            <button class="tag active">全部</button>
-            <button class="tag">工作坊</button>
-            <button class="tag">讲座</button>
-            <button class="tag">线上活动</button>
+        <h1>活动中心</h1>
+        <div class="search-container">
+            <input type="text" id="searchInput" placeholder="搜索活动名称或地点..." onkeyup="filterActivities()">
         </div>
     </section>
 
     <section class="activity-grid-section">
-        <div class="activity-card-grid">
-            <div class="activity-card">
-                <div class="card-image">
-                    <img src="https://images.unsplash.com/photo-1515187029135-18ee286d815b?w=500" alt="Activity">
-                </div>
-                <div class="card-content">
-                    <div class="card-header">
-                        <div class="card-date"><strong>25</strong><span>5月</span></div>
-                        <div class="card-title-group">
-                            <h3>自信表达工作坊</h3>
-                            <p><i class="far fa-clock"></i> 周六 2:00 PM</p>
-                            <p><i class="fas fa-map-marker-alt"></i> 线上活动</p>
-                        </div>
-                    </div>
-                    <button class="btn-primary full-width">立即报名</button>
-                </div>
-            </div>
-            </div>
+        <div class="activity-card-grid" id="activityContainer">
+            <p>正在加载活动...</p>
+        </div>
     </section>
 
+    <script>
+        let allActivities = [];
+
+        // Fetch data from JSON
+        async function fetchActivities() {
+            try {
+                const response = await fetch('activities.json');
+                allActivities = await response.json();
+                renderActivities(allActivities);
+            } catch (error) {
+                console.error("加载失败:", error);
+                document.getElementById('activityContainer').innerHTML = "<p>无法加载活动，请检查 JSON 文件。</p>";
+            }
+        }
+
+        // Render cards to HTML
+        function renderActivities(data) {
+            const container = document.getElementById('activityContainer');
+            if (data.length === 0) {
+                container.innerHTML = "<p>没有找到相关活动。</p>";
+                return;
+            }
+
+            container.innerHTML = data.map(item => `
+                <div class="activity-card">
+                    <div class="card-image">
+                        <img src="${item.image}" alt="${item.title}">
+                    </div>
+                    <div class="card-content">
+                        <div class="card-header">
+                            <div class="card-date"><strong>${item.date}</strong><span>${item.month}</span></div>
+                            <div class="card-title-group">
+                                <h3>${item.title}</h3>
+                                <p><i class="far fa-clock"></i> ${item.time}</p>
+                                <p><i class="fas fa-map-marker-alt"></i> ${item.location}</p>
+                            </div>
+                        </div>
+                        <button class="btn-primary full-width">立即报名</button>
+                    </div>
+                </div>
+            `).join('');
+        }
+
+        // Simple Search Function
+        function filterActivities() {
+            const searchTerm = document.getElementById('searchInput').value.toLowerCase();
+            const filtered = allActivities.filter(act => 
+                act.title.toLowerCase().includes(searchTerm) || 
+                act.location.toLowerCase().includes(searchTerm)
+            );
+            renderActivities(filtered);
+        }
+
+        fetchActivities();
+    </script>
 </body>
 </html>
