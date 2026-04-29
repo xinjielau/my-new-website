@@ -7,32 +7,32 @@
 
 /* Body Styling */
 body {
-    font-family: 'Arial', sans-serif;
+    font-family: 'Helvetica Neue', Arial, sans-serif;
     line-height: 1.6;
-    background-color: #ffe6f1; /* Soft pink background */
-    color: #333;
+    background-color: #f7f7f7;
+    color: #444;
+    padding: 0;
 }
 
 /* Header Styling */
 header {
-    background-color: #ff4d94; /* Vibrant pink */
+    background-color: #ff4d94;
     color: white;
-    padding: 40px 20px;
+    padding: 30px 0;
     text-align: center;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-    border-bottom: 5px solid #ff1a70; /* Darker pink border */
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
 }
 
 header h1 {
-    font-size: 3rem;
-    margin-bottom: 10px;
-    letter-spacing: 2px;
+    font-size: 3.5rem;
     font-weight: 700;
+    letter-spacing: 1px;
+    margin-bottom: 10px;
 }
 
 header p {
-    font-size: 1.2rem;
-    font-weight: 300;
+    font-size: 1.25rem;
+    font-weight: 400;
 }
 
 /* Navigation Styling */
@@ -44,36 +44,35 @@ header nav ul {
 }
 
 header nav ul li {
-    margin: 0 20px;
+    margin: 0 25px;
 }
 
 header nav ul li a {
     color: white;
     text-decoration: none;
-    font-weight: bold;
+    font-weight: 500;
     text-transform: uppercase;
     font-size: 1.1rem;
-    letter-spacing: 1px;
     transition: color 0.3s ease;
 }
 
 header nav ul li a:hover {
-    color: #ffb3d9; /* Light pink on hover */
+    color: #ffb3d9;
 }
 
 /* Hero Section */
 .hero {
-    background-image: url('https://via.placeholder.com/1500x800.png'); /* Replace with your image */
+    background-image: url('assets/images/hero-image.jpg'); /* Replace with your image */
     background-size: cover;
     background-position: center;
-    padding: 80px 20px;
+    padding: 120px 20px;
     text-align: center;
     color: white;
     border-bottom: 5px solid #ff1a70;
 }
 
 .hero h2 {
-    font-size: 3rem;
+    font-size: 3.5rem;
     margin-bottom: 20px;
     font-weight: 600;
 }
@@ -81,69 +80,70 @@ header nav ul li a:hover {
 .hero p {
     font-size: 1.5rem;
     margin-bottom: 30px;
+    font-weight: 300;
 }
 
 button {
-    background-color: #ff66b2; /* Lighter pink */
+    background-color: #ff66b2;
     color: white;
-    padding: 15px 30px;
-    font-size: 1.2rem;
+    padding: 15px 35px;
+    font-size: 1.1rem;
     border: none;
     cursor: pointer;
-    border-radius: 25px;
-    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
+    border-radius: 50px;
     transition: all 0.3s ease;
+    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.2);
 }
 
 button:hover {
     background-color: #ff3385;
-    transform: translateY(-2px);
+    transform: translateY(-3px);
 }
 
-/* Activities Section */
-#activities, #members, #videos {
-    padding: 60px 20px;
+/* Section Styling */
+section {
+    padding: 80px 20px;
     text-align: center;
-    background-color: #ffd9f2; /* Light pink background */
-    margin-top: 40px;
 }
 
-#activities h2, #members h2, #videos h2 {
+/* Activities, Members, Videos Sections */
+h2 {
     font-size: 2.5rem;
-    margin-bottom: 30px;
-    color: #ff4d94;
     font-weight: 600;
+    color: #333;
+    margin-bottom: 40px;
 }
 
 .program {
-    margin: 40px 0;
-    padding: 30px;
+    margin: 50px 0;
+    padding: 40px;
     background-color: white;
     border-radius: 10px;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-    transition: transform 0.3s ease;
+    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 .program:hover {
-    transform: scale(1.05);
+    transform: translateY(-5px);
+    box-shadow: 0 8px 22px rgba(0, 0, 0, 0.15);
 }
 
 .program h3 {
-    font-size: 1.8rem;
+    font-size: 1.75rem;
     color: #ff4d94;
     margin-bottom: 15px;
 }
 
 .program p {
     font-size: 1.1rem;
-    color: #555;
+    color: #666;
 }
 
 /* Video Section */
 video iframe {
     margin: 20px 0;
     border-radius: 10px;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.1);
 }
 
 /* Footer Styling */
@@ -151,8 +151,8 @@ footer {
     background-color: #ff4d94;
     color: white;
     text-align: center;
-    padding: 30px 20px;
-    box-shadow: 0 -4px 10px rgba(0, 0, 0, 0.1);
+    padding: 40px 20px;
+    box-shadow: 0 -4px 12px rgba(0, 0, 0, 0.1);
 }
 
 footer p {
@@ -163,28 +163,28 @@ footer p {
 /* Mobile Responsiveness */
 @media screen and (max-width: 768px) {
     .hero h2 {
-        font-size: 2rem;
+        font-size: 2.5rem;
     }
 
     .hero p {
-        font-size: 1rem;
+        font-size: 1.2rem;
     }
 
     button {
         font-size: 1rem;
-        padding: 12px 25px;
+        padding: 12px 30px;
     }
 
     header h1 {
-        font-size: 2.5rem;
+        font-size: 2.8rem;
     }
 
-    #activities h2, #members h2, #videos h2 {
+    h2 {
         font-size: 2rem;
     }
 
     .program {
-        margin: 20px;
-        padding: 20px;
+        margin: 30px;
+        padding: 25px;
     }
 }
