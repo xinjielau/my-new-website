@@ -1,4 +1,7 @@
-/* --- 1. GLOBAL STYLES (Keep consistent with Home) --- */
+/* ============================================================
+   1. GLOBAL STYLES (Copied from main styles.css)
+   This ensures your Navbar and Fonts look the same as the Home page.
+   ============================================================ */
 :root {
     --primary-pink: #d63384;
     --light-pink: #fdf2f8;
@@ -20,7 +23,7 @@ body {
     line-height: 1.6;
 }
 
-/* --- 2. NAVIGATION (Shared) --- */
+/* Navbar & Brand Branding */
 .navbar {
     display: flex;
     justify-content: space-between;
@@ -64,9 +67,17 @@ body {
     border-radius: 25px;
     cursor: pointer;
     font-weight: bold;
+    transition: 0.3s;
 }
 
-/* --- 3. ACTIVITY HERO & FILTERS --- */
+.btn-primary:hover {
+    background-color: #b82a6e;
+}
+
+/* ============================================================
+   2. ACTIVITY PAGE SPECIFIC STYLES
+   This handles the grid, cards, and filters.
+   ============================================================ */
 .activity-hero {
     text-align: center;
     padding: 60px 10%;
@@ -76,7 +87,6 @@ body {
 .activity-hero h1 {
     font-size: 3rem;
     margin-bottom: 15px;
-    color: var(--text-dark);
 }
 
 .filter-tags {
@@ -103,7 +113,7 @@ body {
     border-color: var(--primary-pink);
 }
 
-/* --- 4. ACTIVITY GRID & CARDS --- */
+/* Grid Layout */
 .activity-grid-section {
     padding: 40px 10% 80px;
 }
@@ -125,7 +135,6 @@ body {
 
 .activity-card:hover {
     transform: translateY(-8px);
-    box-shadow: 0 15px 40px rgba(0,0,0,0.1);
 }
 
 .card-image {
@@ -139,22 +148,6 @@ body {
     object-fit: cover;
 }
 
-.play-btn {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    background: rgba(214, 51, 132, 0.85);
-    color: white;
-    width: 45px;
-    height: 45px;
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 1.2rem;
-}
-
 .card-content {
     padding: 25px;
 }
@@ -165,55 +158,29 @@ body {
     margin-bottom: 20px;
 }
 
-.card-date {
-    text-align: center;
-    min-width: 50px;
-}
-
 .card-date strong {
     display: block;
     font-size: 1.6rem;
     color: var(--primary-pink);
-    line-height: 1;
-}
-
-.card-date span {
-    font-size: 0.85rem;
-    color: var(--text-gray);
-    text-transform: uppercase;
 }
 
 .card-title-group h3 {
     font-size: 1.2rem;
-    margin-bottom: 8px;
-    color: var(--text-dark);
+    margin-bottom: 5px;
 }
 
 .card-title-group p {
     font-size: 0.9rem;
     color: var(--text-gray);
-    margin-bottom: 5px;
-}
-
-.card-title-group i {
-    width: 18px;
-    color: var(--primary-pink);
 }
 
 .full-width {
     width: 100%;
     margin-top: 15px;
-    transition: 0.3s;
 }
 
-.full-width:hover {
-    background-color: #b82a6e;
-}
-
-/* --- 5. RESPONSIVE --- */
-@media (max-width: 768px) {
-    .navbar { padding: 15px 5%; }
-    .activity-hero { padding: 40px 5%; }
-    .activity-hero h1 { font-size: 2.2rem; }
-    .activity-grid-section { padding: 20px 5% 60px; }
+/* Icons styling */
+.card-title-group i {
+    color: var(--primary-pink);
+    margin-right: 5px;
 }
