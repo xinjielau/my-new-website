@@ -1,68 +1,162 @@
 <!DOCTYPE html>
-<html lang="zh">
+<html lang="zh-CN">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ShePower - Empowering Women</title>
+    <title>ShePower - 赋能女性，无限可能</title>
+    
     <link rel="stylesheet" href="assets/styles/styles.css">
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head>
 <body>
+
     <header>
-        <nav>
-            <ul>
-                <li><a href="index.html">首页</a></li>
-                <li><a href="activity/activity1.html">活动</a></li>
-                <li><a href="community-member/member1.html">社区成员</a></li>
-                <li><a href="video/video.html">视频</a></li>
+        <nav class="navbar">
+            <div class="logo">ShePower</div>
+            <ul class="nav-links">
+                <li><a href="#" class="active">首页</a></li>
+                <li><a href="#">活动</a></li>
+                <li><a href="#">社区成员</a></li>
+                <li><a href="#">视频</a></li>
+                <li><a href="#">关于我们</a></li>
+                <li><a href="#">联系我们</a></li>
             </ul>
+            <button class="btn-primary">加入我们 →</button>
         </nav>
-        <h1>ShePower</h1>
-        <p>她力量，无限可能</p>
     </header>
 
-    <section id="home">
-        <div class="hero">
-            <h2>欢迎来到 ShePower</h2>
-            <p>在这里，您将突破障碍，一起走向卓越！</p>
-            <button id="ctaButton">加入我们</button>
+    <section class="hero">
+        <div class="hero-content">
+            <span class="hashtag">#EmpowerHer</span>
+            <h1>她力量 · 无限可能</h1>
+            <p>赋能女性成长，支持每一位女性勇敢追梦，活出精彩人生。</p>
+            <div class="hero-btns">
+                <button class="btn-primary">加入我们 →</button>
+                <button class="btn-secondary">了解更多 ▷</button>
+            </div>
+            
+            <div class="stats-bar">
+                <div class="stat-item">
+                    <strong>10,000+</strong>
+                    <span>活跃女性成员</span>
+                </div>
+                <div class="stat-item">
+                    <strong>500+</strong>
+                    <span>活动与工作坊</span>
+                </div>
+                <div class="stat-item">
+                    <strong>25+</strong>
+                    <span>合作社区</span>
+                </div>
+            </div>
+        </div>
+        <div class="hero-image">
+            <img src="https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?auto=format&fit=crop&w=800&q=80" alt="ShePower Community">
         </div>
     </section>
 
-    <section id="activities">
-        <h2>我们的活动</h2>
-        <div class="program">
-            <img src="assets/images/activity-image.jpg" alt="Activity 1">
-            <h3>赋能工作坊</h3>
-            <p>参与充实的工作坊，提升您的技能和自信心。</p>
+    <section class="services">
+        <div class="section-header">
+            <p class="subtitle">我们做什么 ♡</p>
+            <h2>支持 · 赋能 · 成长</h2>
+            <p>为女性提供全方位支持，帮助她们突破自我，实现梦想。</p>
         </div>
-        <div class="program">
-            <img src="assets/images/activity-image.jpg" alt="Activity 2">
-            <h3>导师计划</h3>
-            <p>通过导师的指导，帮助您实现个人和职业目标。</p>
+        <div class="service-grid">
+            <div class="service-card">
+                <i class="fas fa-graduation-cap"></i>
+                <h3>教育与技能提升</h3>
+                <p>提供各类课程与培训，帮助女性提升知识与技能。</p>
+                <a href="#">了解更多 →</a>
+            </div>
+            <div class="service-card">
+                <i class="fas fa-users"></i>
+                <h3>社区与支持网络</h3>
+                <p>连接志同道合的女性，分享经验，互相支持。</p>
+                <a href="#">了解更多 →</a>
+            </div>
+            <div class="service-card">
+                <i class="fas fa-briefcase"></i>
+                <h3>职业发展与机会</h3>
+                <p>提供职业指导、实习与就业机会。</p>
+                <a href="#">了解更多 →</a>
+            </div>
+            <div class="service-card">
+                <i class="fas fa-heart"></i>
+                <h3>身心健康关怀</h3>
+                <p>关注女性身心健康，举办讲座与活动。</p>
+                <a href="#">了解更多 →</a>
+            </div>
         </div>
     </section>
 
-    <section id="community">
-        <h2>遇见我们的社区成员</h2>
-        <div class="member">
-            <img src="assets/images/community-member.jpg" alt="Member 1">
-            <p>李小姐 - 活跃参与者</p>
+    <section class="events-container">
+        <div class="events-list">
+            <div class="section-header-inline">
+                <h2>近期活动</h2>
+                <a href="#" class="view-all">查看全部 →</a>
+            </div>
+
+            <div class="event-item">
+                <div class="event-date"><strong>25</strong><span>5月</span></div>
+                <div class="event-info">
+                    <h3>自信表达工作坊</h3>
+                    <p><i class="far fa-clock"></i> 周六 2:00 PM - 5:00 PM</p>
+                </div>
+                <button class="btn-outline">立即报名</button>
+            </div>
+
+            <div class="event-item">
+                <div class="event-date"><strong>08</strong><span>6月</span></div>
+                <div class="event-info">
+                    <h3>女性领导力论坛</h3>
+                    <p><i class="far fa-clock"></i> 周六 10:00 AM - 1:00 PM</p>
+                </div>
+                <button class="btn-outline">立即报名</button>
+            </div>
         </div>
-        <div class="member">
-            <img src="assets/images/community-member.jpg" alt="Member 2">
-            <p>王女士 - 领导力导师</p>
+
+        <div class="quote-section">
+            <div class="quote-card">
+                <h2>每一个她的故事，<br>都是改变世界的力量。</h2>
+                <p>在 ShePower，我们相信每一位女性都有无限潜能。</p>
+                <button class="btn-primary">阅读更多故事 →</button>
+            </div>
+            <div class="quote-images">
+                <img src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?w=400" alt="Story 1">
+                <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=400" alt="Story 2">
+            </div>
         </div>
     </section>
 
-    <section id="videos">
-        <h2>启发视频</h2>
-        <div class="video">
-            <iframe width="560" height="315" src="https://www.youtube.com/embed/dQw4w9WgXcQ" frameborder="0" allowfullscreen></iframe>
+    <footer class="main-footer">
+        <div class="footer-top">
+            <div class="footer-subscribe">
+                <h3>订阅我们的资讯</h3>
+                <div class="subscribe-box">
+                    <input type="email" placeholder="输入您的邮箱地址">
+                    <button>订阅</button>
+                </div>
+            </div>
+            <div class="footer-links">
+                <h4>快速链接</h4>
+                <ul>
+                    <li><a href="#">关于我们</a></li>
+                    <li><a href="#">常见问题</a></li>
+                    <li><a href="#">隐私政策</a></li>
+                </ul>
+            </div>
         </div>
-    </section>
-
-    <footer>
-        <p>&copy; 2026 ShePower Community</p>
+        <div class="footer-bottom">
+            <div class="footer-logo">
+                <p>© 2026 ShePower Community. 保留所有权利。</p>
+                <div class="social-icons">
+                    <i class="fab fa-facebook"></i>
+                    <i class="fab fa-instagram"></i>
+                    <i class="fab fa-linkedin"></i>
+                </div>
+            </div>
+        </div>
     </footer>
 
     <script src="script.js"></script>
