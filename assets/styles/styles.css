@@ -7,28 +7,44 @@
 
 /* Body Styling */
 body {
-    font-family: Arial, sans-serif;
+    font-family: 'Arial', sans-serif;
     line-height: 1.6;
-    background-color: #f4f4f9;
+    background-color: #ffe6f1; /* Soft pink background */
     color: #333;
 }
 
 /* Header Styling */
 header {
-    background-color: #6a4c9c; /* Purple */
+    background-color: #ff4d94; /* Vibrant pink */
     color: white;
-    padding: 20px 0;
+    padding: 40px 20px;
     text-align: center;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    border-bottom: 5px solid #ff1a70; /* Darker pink border */
 }
 
+header h1 {
+    font-size: 3rem;
+    margin-bottom: 10px;
+    letter-spacing: 2px;
+    font-weight: 700;
+}
+
+header p {
+    font-size: 1.2rem;
+    font-weight: 300;
+}
+
+/* Navigation Styling */
 header nav ul {
     display: flex;
     justify-content: center;
     list-style-type: none;
+    margin-top: 20px;
 }
 
 header nav ul li {
-    margin: 0 15px;
+    margin: 0 20px;
 }
 
 header nav ul li a {
@@ -36,74 +52,139 @@ header nav ul li a {
     text-decoration: none;
     font-weight: bold;
     text-transform: uppercase;
+    font-size: 1.1rem;
+    letter-spacing: 1px;
+    transition: color 0.3s ease;
+}
+
+header nav ul li a:hover {
+    color: #ffb3d9; /* Light pink on hover */
 }
 
 /* Hero Section */
 .hero {
-    background-image: url('https://via.placeholder.com/1500x600.png'); /* Replace with your image */
+    background-image: url('https://via.placeholder.com/1500x800.png'); /* Replace with your image */
     background-size: cover;
     background-position: center;
-    padding: 60px 20px;
+    padding: 80px 20px;
     text-align: center;
     color: white;
+    border-bottom: 5px solid #ff1a70;
 }
 
 .hero h2 {
-    font-size: 2.5rem;
+    font-size: 3rem;
     margin-bottom: 20px;
+    font-weight: 600;
 }
 
 .hero p {
-    font-size: 1.2rem;
+    font-size: 1.5rem;
     margin-bottom: 30px;
 }
 
 button {
-    background-color: #f9a825; /* Gold */
+    background-color: #ff66b2; /* Lighter pink */
     color: white;
-    padding: 15px 25px;
-    font-size: 1rem;
+    padding: 15px 30px;
+    font-size: 1.2rem;
     border: none;
     cursor: pointer;
-    border-radius: 5px;
+    border-radius: 25px;
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
+    transition: all 0.3s ease;
 }
 
 button:hover {
-    background-color: #f57f17;
+    background-color: #ff3385;
+    transform: translateY(-2px);
 }
 
 /* Activities Section */
 #activities, #members, #videos {
-    padding: 40px 20px;
+    padding: 60px 20px;
     text-align: center;
+    background-color: #ffd9f2; /* Light pink background */
+    margin-top: 40px;
 }
 
 #activities h2, #members h2, #videos h2 {
-    font-size: 2rem;
+    font-size: 2.5rem;
     margin-bottom: 30px;
+    color: #ff4d94;
+    font-weight: 600;
 }
 
 .program {
-    margin: 20px 0;
+    margin: 40px 0;
+    padding: 30px;
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+}
+
+.program:hover {
+    transform: scale(1.05);
 }
 
 .program h3 {
-    font-size: 1.5rem;
-    color: #6a4c9c;
+    font-size: 1.8rem;
+    color: #ff4d94;
+    margin-bottom: 15px;
 }
 
 .program p {
-    font-size: 1rem;
+    font-size: 1.1rem;
+    color: #555;
 }
 
+/* Video Section */
 video iframe {
     margin: 20px 0;
+    border-radius: 10px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
 }
 
 /* Footer Styling */
 footer {
-    background-color: #6a4c9c;
+    background-color: #ff4d94;
     color: white;
     text-align: center;
-    padding: 15px 0;
+    padding: 30px 20px;
+    box-shadow: 0 -4px 10px rgba(0, 0, 0, 0.1);
+}
+
+footer p {
+    font-size: 1rem;
+    font-weight: 300;
+}
+
+/* Mobile Responsiveness */
+@media screen and (max-width: 768px) {
+    .hero h2 {
+        font-size: 2rem;
+    }
+
+    .hero p {
+        font-size: 1rem;
+    }
+
+    button {
+        font-size: 1rem;
+        padding: 12px 25px;
+    }
+
+    header h1 {
+        font-size: 2.5rem;
+    }
+
+    #activities h2, #members h2, #videos h2 {
+        font-size: 2rem;
+    }
+
+    .program {
+        margin: 20px;
+        padding: 20px;
+    }
 }
