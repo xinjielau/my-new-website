@@ -11,7 +11,6 @@ body {
     line-height: 1.6;
     background-color: #f7f7f7;
     color: #444;
-    padding: 0;
 }
 
 /* Header Styling */
@@ -20,14 +19,12 @@ header {
     color: white;
     padding: 30px 0;
     text-align: center;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
 }
 
 header h1 {
     font-size: 3.5rem;
     font-weight: 700;
     letter-spacing: 1px;
-    margin-bottom: 10px;
 }
 
 header p {
@@ -62,7 +59,7 @@ header nav ul li a:hover {
 
 /* Hero Section */
 .hero {
-    background-image: url('assets/images/hero-image.jpg'); /* Replace with your image */
+    background-image: url('assets/images/hero-image.jpg'); /* Replace with actual hero image */
     background-size: cover;
     background-position: center;
     padding: 120px 20px;
@@ -74,13 +71,11 @@ header nav ul li a:hover {
 .hero h2 {
     font-size: 3.5rem;
     margin-bottom: 20px;
-    font-weight: 600;
 }
 
 .hero p {
     font-size: 1.5rem;
     margin-bottom: 30px;
-    font-weight: 300;
 }
 
 button {
@@ -91,13 +86,10 @@ button {
     border: none;
     cursor: pointer;
     border-radius: 50px;
-    transition: all 0.3s ease;
-    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.2);
 }
 
 button:hover {
     background-color: #ff3385;
-    transform: translateY(-3px);
 }
 
 /* Section Styling */
@@ -106,41 +98,62 @@ section {
     text-align: center;
 }
 
-/* Activities, Members, Videos Sections */
-h2 {
+/* Activities Section */
+#activities h2 {
     font-size: 2.5rem;
-    font-weight: 600;
-    color: #333;
     margin-bottom: 40px;
 }
 
 .program {
-    margin: 50px 0;
-    padding: 40px;
+    display: inline-block;
+    margin: 20px;
+    padding: 30px;
     background-color: white;
     border-radius: 10px;
     box-shadow: 0 6px 18px rgba(0, 0, 0, 0.1);
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    width: 250px;
+    text-align: center;
 }
 
-.program:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 8px 22px rgba(0, 0, 0, 0.15);
-}
-
-.program h3 {
-    font-size: 1.75rem;
-    color: #ff4d94;
+.program img {
+    width: 100%;
+    border-radius: 10px;
     margin-bottom: 15px;
 }
 
+.program h3 {
+    font-size: 1.5rem;
+    color: #ff4d94;
+}
+
 .program p {
-    font-size: 1.1rem;
-    color: #666;
+    font-size: 1rem;
+}
+
+/* Community Section */
+#community h2 {
+    font-size: 2.5rem;
+    margin-bottom: 40px;
+}
+
+.member {
+    display: inline-block;
+    margin: 20px;
+    padding: 20px;
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+.member img {
+    width: 100%;
+    border-radius: 10px;
+    margin-bottom: 15px;
 }
 
 /* Video Section */
-video iframe {
+#videos iframe {
     margin: 20px 0;
     border-radius: 10px;
     box-shadow: 0 6px 18px rgba(0, 0, 0, 0.1);
@@ -152,7 +165,6 @@ footer {
     color: white;
     text-align: center;
     padding: 40px 20px;
-    box-shadow: 0 -4px 12px rgba(0, 0, 0, 0.1);
 }
 
 footer p {
@@ -175,16 +187,11 @@ footer p {
         padding: 12px 30px;
     }
 
-    header h1 {
-        font-size: 2.8rem;
-    }
-
-    h2 {
+    #activities h2 {
         font-size: 2rem;
     }
 
     .program {
-        margin: 30px;
-        padding: 25px;
+        width: 100%;
     }
 }
