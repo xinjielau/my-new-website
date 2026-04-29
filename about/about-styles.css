@@ -1,0 +1,85 @@
+:root {
+    --primary-pink: #d63384;
+    --light-pink: #fff5f8;
+    --text-dark: #333;
+    --text-gray: #666;
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; font-family: "PingFang SC", sans-serif; }
+
+/* Navbar Styling */
+.navbar {
+    display: flex; justify-content: space-between; align-items: center;
+    padding: 20px 10%; background: white; position: sticky; top: 0; z-index: 1000;
+}
+.logo { font-size: 24px; font-weight: bold; color: var(--primary-pink); }
+.nav-links { display: flex; list-style: none; gap: 30px; }
+.nav-links a { text-decoration: none; color: var(--text-dark); font-weight: 500; }
+.nav-links a.active { color: var(--primary-pink); border-bottom: 2px solid var(--primary-pink); }
+.btn-primary { 
+    background: var(--primary-pink); color: white; border: none; 
+    padding: 10px 25px; border-radius: 25px; cursor: pointer; font-weight: bold;
+}
+
+/* About Hero */
+.about-hero {
+    text-align: center;
+    padding: 80px 10%;
+    background: linear-gradient(to bottom, #fff, var(--light-pink));
+}
+.about-hero h1 { font-size: 3rem; color: #5a1232; margin-bottom: 20px; }
+.hero-subtitle { max-width: 700px; margin: 0 auto; color: var(--text-gray); font-size: 1.1rem; line-height: 1.8; }
+
+/* Mission & Vision Section */
+.mission-section { padding: 40px 10% 80px; }
+.mission-container {
+    background: white;
+    border-radius: 30px;
+    padding: 50px;
+    display: flex;
+    gap: 60px;
+    box-shadow: 0 10px 40px rgba(214, 51, 132, 0.05);
+    align-items: center;
+}
+
+.mission-text { flex: 1.2; }
+.text-block { margin-bottom: 40px; }
+.text-block h2 { color: #5a1232; margin-bottom: 20px; font-size: 1.8rem; }
+.text-block p { color: var(--text-gray); line-height: 1.8; font-size: 1rem; }
+
+.vision-list { list-style: none; }
+.vision-list li { 
+    display: flex; align-items: center; gap: 15px; 
+    margin-bottom: 15px; color: var(--text-gray); 
+}
+.vision-list i { color: var(--primary-pink); font-size: 1.2rem; }
+
+.mission-image { flex: 1; }
+.mission-image img { 
+    width: 100%; border-radius: 20px; 
+    box-shadow: 20px 20px 0px var(--light-pink); 
+}
+
+/* Stats Grid */
+.stats-section { padding: 0 10% 60px; }
+.stats-grid {
+    background: white;
+    border-radius: 20px;
+    padding: 40px;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 30px;
+    box-shadow: 0 5px 25px rgba(0,0,0,0.05);
+}
+
+.stat-box { display: flex; align-items: center; gap: 20px; justify-content: center; }
+.stat-box i { font-size: 2rem; color: var(--primary-pink); opacity: 0.8; }
+.stat-info strong { display: block; font-size: 1.5rem; color: var(--text-dark); }
+.stat-info span { font-size: 0.9rem; color: var(--text-gray); }
+
+/* Responsive */
+@media (max-width: 968px) {
+    .mission-container { flex-direction: column; padding: 30px; }
+    .mission-image { order: -1; }
+    .about-hero h1 { font-size: 2.2rem; }
+}
