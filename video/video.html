@@ -1,38 +1,98 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="zh-CN">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ShePower - Videos</title>
-    <link rel="stylesheet" href="assets/styles/styles.css">
+    <title>视频库 - ShePower</title>
+    <link rel="stylesheet" href="video-styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head>
 <body>
+
     <header>
-        <nav>
-            <ul>
-                <li><a href="index.html">Home</a></li>
-                <li><a href="activity1.html">Activities</a></li>
-                <li><a href="member1.html">Community Members</a></li>
-                <li><a href="video.html">Videos</a></li>
+        <nav class="navbar">
+            <div class="logo">ShePower</div>
+            <ul class="nav-links">
+                <li><a href="../index.html">首页</a></li>
+                <li><a href="../activity/activity.html">活动</a></li>
+                <li><a href="../member/member.html">社区成员</a></li>
+                <li><a href="video.html" class="active">视频</a></li>
+                <li><a href="#">关于我们</a></li>
+                <li><a href="#">联系我们</a></li>
             </ul>
+            <button class="btn-primary">加入我们 →</button>
         </nav>
-        <h1>ShePower Videos</h1>
     </header>
 
-    <section id="videos">
-        <h2>Our Empowering Videos</h2>
-        <p>Watch inspiring videos from our community members, events, and empowerment programs.</p>
-        <!-- Embed videos or links to videos -->
-        <div class="video">
-            <h3>Empowerment Story</h3>
-            <iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ" title="Empowerment Story" width="560" height="315" allowfullscreen></iframe>
+    <section class="video-hero">
+        <h1>视频</h1>
+        <p>观看她们的故事，分享成长与感悟，汲取灵感与力量。</p>
+        
+        <div class="filter-tabs">
+            <button class="filter-btn active" onclick="filterVideos('全部')">全部</button>
+            <button class="filter-btn" onclick="filterVideos('故事分享')">故事分享</button>
+            <button class="filter-btn" onclick="filterVideos('技能提升')">技能提升</button>
+            <button class="filter-btn" onclick="filterVideos('活动回顾')">活动回顾</button>
         </div>
     </section>
 
-    <footer>
-        <p>&copy; 2026 ShePower Community</p>
-    </footer>
+    <section class="video-grid-section">
+        <div class="video-card-grid" id="videoContainer">
+            </div>
+        
+        <div class="load-more">
+            <button class="btn-primary-large">加载更多视频 →</button>
+        </div>
+    </section>
 
-    <script src="script.js"></script>
+    <script>
+        let videoData = [];
+
+        async function loadVideos() {
+            try {
+                const response = await fetch('videos.json');
+                videoData = await response.json();
+                displayVideos(videoData);
+            } catch (e) {
+                console.error("Error:", e);
+            }
+        }
+
+        function displayVideos(data) {
+            const container = document.getElementById('videoContainer');
+            container.innerHTML = data.map(video => `
+                <div class="video-card">
+                    <div class="video-thumbnail">
+                        <img src="${video.thumbnail}" alt="${video.title}">
+                        <div class="play-overlay">
+                            <i class="fas fa-play-circle"></i>
+                        </div>
+                        <span class="duration">${video.duration}</span>
+                    </div>
+                    <div class="video-info">
+                        <h3>${video.title}</h3>
+                        <p><i class="far fa-folder"></i> ${video.category}</p>
+                    </div>
+                </div>
+            `).join('');
+        }
+
+        function filterVideos(category) {
+            // Update UI buttons
+            document.querySelectorAll('.filter-btn').forEach(btn => {
+                btn.classList.remove('active');
+                if(btn.innerText === category) btn.classList.add('active');
+            });
+
+            if (category === '全部') {
+                displayVideos(videoData);
+            } else {
+                const filtered = videoData.filter(v => v.category === category);
+                displayVideos(filtered);
+            }
+        }
+
+        loadVideos();
+    </script>
 </body>
 </html>
