@@ -1,0 +1,30 @@
+[
+  {
+    "id": "bm-01",
+    "title": "逐光追梦",
+    "price": "RM 1.00",
+    "image": "../asset/bookmark/bookmark1.png",
+    "tag": "热卖"
+  },
+  {
+    "id": "bm-02",
+    "title": "微光相伴",
+    "price": "RM 1.00",
+    "image": "../asset/bookmark/bookmark2.png",
+    "tag": "公益"
+  },
+  {
+    "id": "bm-03",
+    "title": "一路繁花",
+    "price": "RM 1.00",
+    "image": "../asset/bookmark/bookmark3.png",
+    "tag": "精选"
+  },
+  {
+    "id": "bm-04",
+    "title": "星夜守望",
+    "price": "RM 1.00",
+    "image": "../asset/bookmark/bookmark4.png",
+    "tag": "新品"
+  }
+]

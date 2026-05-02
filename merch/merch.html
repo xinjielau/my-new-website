@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>官方周边 - ShePower</title>
+    <link rel="stylesheet" href="../styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        /* Force 4 columns for merch cards on desktop */
+        .merch-card-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+        @media (min-width: 1200px) {
+            .merch-card-grid {
+                grid-template-columns: repeat(4, 1fr); 
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="cursor-dot"></div>
+    <div class="cursor-outline"></div>
+    <div class="aura aura-1"></div>
+    <div class="aura aura-2"></div>
+    <div class="aura aura-3"></div>
+
+    <header class="navbar glass-panel-nav">
+        <div class="container nav-container">
+            <div class="logo">She<span>Power</span></div>
+            <ul class="nav-links">
+                <li><a href="../index.html" class="hover-target">首页</a></li>
+                <li><a href="../activity/activity.html" class="hover-target">活动</a></li>
+                <li><a href="../community-member/member.html" class="hover-target">社区成员</a></li>
+                <li><a href="../video/video.html" class="hover-target">视频</a></li>
+                <li><a href="merch.html" class="active hover-target">周边</a></li>
+                <li><a href="../about/about.html" class="hover-target">关于我们</a></li>
+            </ul>
+            <div class="nav-actions">
+                <button id="theme-toggle" class="icon-btn hover-target"><i class="fas fa-moon"></i></button>
+                <button class="btn-primary hover-target btn-sm-nav join-us-trigger" style="margin-left: 15px;">加入我们 &rarr;</button>
+            </div>
+        </div>
+    </header>
+
+    <section class="merch-hero section-padding" style="padding-top: 180px; padding-bottom: 60px;">
+        <div class="container text-center">
+            <h1 class="fade-in-up" style="font-size: clamp(2.8rem, 4vw, 4rem); font-weight: 800; margin-bottom: 16px;">
+                义卖<span class="text-gradient">周边</span>
+            </h1>
+            
+            <div class="glass-panel fade-in-up" style="display: inline-flex; align-items: center; gap: 15px; padding: 15px 30px; border-radius: 50px; transition-delay: 0.2s;">
+                <i class="fas fa-heart" style="color: var(--accent-1); font-size: 1.5rem;"></i>
+                <span style="font-weight: 700;">义卖价格: RM 1.00/枚 (所得将用于公益)</span>
+            </div>
+        </div>
+    </section>
+
+    <section class="merch-grid-section section-padding pt-0">
+        <div class="container">
+            <div class="merch-card-grid" id="merchContainer">
+                <!-- Bookmarks will be injected here by the script below -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Modal -->
+    <div id="contact-modal" class="modal-overlay">
+        <div class="modal-content glass-panel">
+            <button class="close-modal">&times;</button>
+            <h2>立即购买 <span>Order</span></h2>
+            <div class="contact-methods">
+                <a href="https://wa.me/0176157314" target="_blank" class="contact-item hover-target">
+                    <i class="fab fa-whatsapp"></i>
+                    <span>WhatsApp 联系</span>
+                </a>
+                <a href="https://www.instagram.com/shepower.tribe/?hl=en" target="_blank" class="contact-item hover-target">
+                    <i class="fab fa-instagram"></i>
+                    <span>Instagram 私信</span>
+                </a>
+            </div>
+            <p style="margin-top: 20px; font-weight: 700; color: var(--accent-1);">感谢您的支持！</p>
+        </div>
+    </div>
+
+    <!-- Footer[cite: 15] -->
+    <footer class="glass-footer">
+        <div class="container">
+            <div class="footer-nav">
+                <div class="f-brand">
+                    <div class="logo">She<span>Power</span></div>
+                    <p>赋能女性，无限可能</p>
+                    <p style="font-size: 0.8rem; margin-top: 10px;">© 2026 保留所有权利。</p>
+                </div>
+                <div class="f-links">
+                    <a href="about/about.html" class="hover-target">关于我们</a>
+                    <a href="merch/merch.html" class="hover-target">慈善</a>
+                    <a href="community-member/member.html" class="hover-target">认识成员</a>
+                </div>
+                <div class="f-socials" style="align-items: center;">
+                    <a href="https://www.instagram.com/shepower.tribe/?hl=en" class="hover-target" title="Instagram"><i class="fab fa-instagram"></i></a>
+                    <a href="https://xhslink.com/m/3bpJgKgzVRE" class="hover-target" title="Rednote" style="font-size: 1rem; font-weight: 800; text-decoration: none;">Rednote</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="../script.js"></script>
+    <script>
+        async function loadMerch() {
+            try {
+                // Fetch data from merch.json
+                const response = await fetch('merch.json');
+                const products = await response.json();
+                
+                const container = document.getElementById('merchContainer');
+                container.innerHTML = products.map((item, index) => `
+                    <div class="activity-card glass-panel hover-target fade-in-up" style="transition-delay: ${index * 0.1}s;">
+                        <div class="card-image" style="height: 380px; overflow: hidden; border-radius: 20px 20px 0 0; position: relative;">
+                            <img src="${item.image}" alt="${item.title}" style="width: 100%; height: 100%; object-fit: cover;">
+                            <div style="position: absolute; top: 12px; left: 12px; background: rgba(255, 255, 255, 0.9); padding: 4px 10px; border-radius: 6px; font-size: 0.75rem; font-weight: 700; color: var(--text-main);">
+                                ${item.tag}
+                            </div>
+                        </div>
+                        <div class="card-content" style="padding: 24px; text-align: center;">
+                            <h3 style="font-size: 1.3rem; font-weight: 800; margin-bottom: 8px;">${item.title}</h3>
+                            
+                            <!-- Removed the description p tag, added a larger margin-bottom to the price -->
+                            <p style="color: var(--accent-1); font-size: 1.2rem; font-weight: 800; margin-bottom: 24px;">${item.price}</p>
+                            
+                            <button class="btn-primary ripple-btn join-us-trigger" style="width: 100%;">咨询购买 &rarr;</button>
+                        </div>
+                    </div>
+                `).join('');
+                
+                // Re-bind modal triggers for the dynamically created buttons
+                const triggers = document.querySelectorAll('.join-us-trigger');
+                const modal = document.getElementById('contact-modal');
+                triggers.forEach(btn => {
+                    btn.addEventListener('click', () => {
+                        modal.classList.add('active');
+                        document.body.style.overflow = 'hidden';
+                    });
+                });
+
+                 // Re-initialize intersection observers for the newly injected dynamic elements
+                 const faders = document.querySelectorAll('.fade-in-up');
+                const appearOnScroll = new IntersectionObserver(function(entries, observer) {
+                    entries.forEach(entry => {
+                        if (entry.isIntersecting) {
+                            entry.target.classList.add('visible');
+                            observer.unobserve(entry.target);
+                        }
+                    });
+                }, { threshold: 0.1, rootMargin: "0px 0px -50px 0px" });
+                faders.forEach(fader => appearOnScroll.observe(fader));
+                
+            } catch (error) {
+                console.error("Failed to load merch:", error);
+                document.getElementById('merchContainer').innerHTML = "<p style='text-align:center;'>周边加载失败，请稍后再试。</p>";
+            }
+        }
+
+        // Run the fetch function immediately
+        loadMerch();
+    </script>
+</body>
+</html>
