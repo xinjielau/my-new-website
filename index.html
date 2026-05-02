@@ -4,161 +4,301 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ShePower - 赋能女性，无限可能</title>
-    
     <link rel="stylesheet" href="styles.css">
-    
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 </head>
 <body>
 
-    <header>
-        <nav class="navbar">
-            <div class="logo">ShePower</div>
+    <!-- Custom Interactive Cursor[cite: 15] -->
+    <div class="cursor-dot"></div>
+    <div class="cursor-outline"></div>
+
+    <!-- Animated Aura Background[cite: 15] -->
+    <div class="aura aura-1"></div>
+    <div class="aura aura-2"></div>
+    <div class="aura aura-3"></div>
+
+    <!-- Navbar with Theme Toggle and Merch Link[cite: 15] -->
+    <header class="navbar glass-panel-nav">
+        <div class="container nav-container">
+            <div class="logo">She<span>Power</span></div>
             <ul class="nav-links">
-                <li><a href="#" class="active">首页</a></li>
-                <li><a href="activity/activity.html">活动</a></li>
-                <li><a href="community-member/member.html">社区成员</a></li>
-                <li><a href="video/video.html">视频</a></li>
-                <li><a href="about/about.html">关于我们</a></li>
-                <li><a href="#">联系我们</a></li>
+                <li><a href="#" class="active hover-target">首页</a></li>
+                <li><a href="activity/activity.html" class="hover-target">活动</a></li>
+                <li><a href="community-member/member.html" class="hover-target">社区成员</a></li>
+                <li><a href="video/video.html" class="hover-target">视频</a></li>
+                <li><a href="merch/merch.html" class="hover-target">周边</a></li>
+                <li><a href="about/about.html" class="hover-target">关于我们</a></li>
             </ul>
-            <button class="btn-primary">加入我们 →</button>
-        </nav>
+            <div class="nav-actions">
+                <button id="theme-toggle" class="icon-btn hover-target" title="切换主题"><i class="fas fa-moon"></i></button>
+                <button class="btn-primary hover-target btn-sm-nav join-us-trigger" style="margin-left: 15px;">加入我们 &rarr;</button>
+            </div>
+        </div>
     </header>
 
+    <!-- Hero Section[cite: 15] -->
     <section class="hero">
-        <div class="hero-content">
-            <span class="hashtag">#EmpowerHer</span>
-            <h1>她力量 · 无限可能</h1>
-            <p>赋能女性成长，支持每一位女性勇敢追梦，活出精彩人生。</p>
-            <div class="hero-btns">
-                <button class="btn-primary">加入我们 →</button>
-                <button class="btn-secondary">了解更多 ▷</button>
-            </div>
-            
-            <div class="stats-bar">
-                <div class="stat-item">
-                    <strong>10,000+</strong>
-                    <span>活跃女性成员</span>
+        <div class="container">
+            <div class="hero-grid">
+                <div class="hero-content fade-in">
+                    <div class="badge fade-in-up">🌟 #ShePower</div>
+                    <h1 class="fade-in-up" style="transition-delay: 0.1s;">ShePower<br>
+                        <span class="text-gradient type-text"></span><span class="cursor-blink">|</span>
+                    </h1>
+                    <p class="fade-in-up" style="transition-delay: 0.2s;">我们坚信每个女孩都有自己的闪耀点。在这里，我们赋能女性成长，打破职场与生活的隐形天花板，支持每一位女性勇敢追梦，活出属于自己的精彩人生。从而达到三立的人生 （经济独立，能力独立，思想独立）。</p>
+                    
+                    <div class="hero-btns fade-in-up" style="transition-delay: 0.3s;">
+                        <button class="btn-primary hover-target join-us-trigger">加入社区</button>
+                        <a href="merch/merch.html" class="btn-play hover-target" style="text-decoration: none; display: inline-flex; align-items: center; justify-content: center;">
+                            <i class="fas fa-bookmark"></i> 浏览周边
+                        </a>
+                        <a href="video/video.html" class="btn-play hover-target" style="text-decoration: none; display: inline-flex; align-items: center; justify-content: center;">
+                            <i class="fas fa-play"></i> 观看社团创立故事
+                        </a>
+                    </div>
                 </div>
-                <div class="stat-item">
-                    <strong>500+</strong>
-                    <span>活动与工作坊</span>
-                </div>
-                <div class="stat-item">
-                    <strong>25+</strong>
-                    <span>合作社区</span>
-                </div>
-            </div>
-        </div>
-        <div class="hero-image">
-            <img src="asset/image/image9.jpeg" alt="ShePower Community">
-        </div>
-    </section>
 
-    <section class="services">
-        <div class="section-header">
-            <p class="subtitle">我们做什么 ♡</p>
-            <h2>支持 · 赋能 · 成长</h2>
-            <p>为女性提供全方位支持，帮助她们突破自我，实现梦想。</p>
-        </div>
-        <div class="service-grid">
-            <div class="service-card">
-                <i class="fas fa-graduation-cap"></i>
-                <h3>教育与技能提升</h3>
-                <p>提供各类课程与培训，帮助女性提升知识与技能。</p>
-                <a href="#">了解更多 →</a>
-            </div>
-            <div class="service-card">
-                <i class="fas fa-users"></i>
-                <h3>社区与支持网络</h3>
-                <p>连接志同道合的女性，分享经验，互相支持。</p>
-                <a href="#">了解更多 →</a>
-            </div>
-            <div class="service-card">
-                <i class="fas fa-briefcase"></i>
-                <h3>职业发展与机会</h3>
-                <p>提供职业指导、实习与就业机会。</p>
-                <a href="#">了解更多 →</a>
-            </div>
-            <div class="service-card">
-                <i class="fas fa-heart"></i>
-                <h3>身心健康关怀</h3>
-                <p>关注女性身心健康，举办讲座与活动。</p>
-                <a href="#">了解更多 →</a>
-            </div>
-        </div>
-    </section>
-
-    <section class="events-container">
-        <div class="events-list">
-            <div class="section-header-inline">
-                <h2>近期活动</h2>
-                <a href="#" class="view-all">查看全部 →</a>
+                <div class="hero-image-wrapper fade-in" data-tilt>
+                    <div class="glare"></div>
+                    <img src="asset/first/image9.jpeg" alt="ShePower Community" class="main-img">
+                </div>
             </div>
 
-            <div class="event-item">
-                <div class="event-date"><strong>25</strong><span>5月</span></div>
-                <div class="event-info">
-                    <h3>自信表达工作坊</h3>
-                    <p><i class="far fa-clock"></i> 周六 2:00 PM - 5:00 PM</p>
+            <!-- Stats Row Section[cite: 15] -->
+            <div class="stats-row glass-panel fade-in-up" style="transition-delay: 0.4s;">
+                <div class="stat">
+                    <h2><span class="counter" data-target="3">0</span></h2>
+                    <p>核心独立支柱</p>
                 </div>
-                <button class="btn-outline">立即报名</button>
+                <div class="divider"></div>
+                <div class="stat">
+                    <h2><span class="counter" data-target="20">0</span>+</h2>
+                    <p>创始导师成员</p>
+                </div>
+                <div class="divider"></div>
+                <div class="stat">
+                    <h2><span class="counter" data-target="1">0</span></h2>
+                    <p>共同成长愿景</p>
+                </div>
+                <div class="divider"></div>
+                <div class="stat">
+                    <h2><span class="counter" data-target="100">0</span>%</h2>
+                    <p>正能量环境</p>
+                </div>
             </div>
 
-            <div class="event-item">
-                <div class="event-date"><strong>08</strong><span>6月</span></div>
-                <div class="event-info">
-                    <h3>女性领导力论坛</h3>
-                    <p><i class="far fa-clock"></i> 周六 10:00 AM - 1:00 PM</p>
+            <!-- Diversified Professions Strip[cite: 15] -->
+            <div class="partners-strip fade-in-up" style="transition-delay: 0.5s;">
+                <p>凝聚多元女性力量，跨越行业边界</p>
+                <div class="partner-logos">
+                    <span class="hover-target"><i class="fas fa-user-graduate"></i> 大学生</span>
+                    <span class="hover-target"><i class="fas fa-code"></i> 程序员</span>
+                    <span class="hover-target"><i class="fas fa-calculator"></i> 会计师</span>
+                    <span class="hover-target"><i class="fas fa-globe-americas"></i> International Purchaser</span>
+                    <span class="hover-target"><i class="fas fa-check-double"></i> QA Trainer</span>
+                    <span class="hover-target"><i class="fas fa-chalkboard-teacher"></i> 老师</span>
+                    <span class="hover-target"><i class="fas fa-home"></i> 家庭主妇</span>
                 </div>
-                <button class="btn-outline">立即报名</button>
-            </div>
-        </div>
-
-        <div class="quote-section">
-            <div class="quote-card">
-                <h2>每一个她的故事，<br>都是改变世界的力量。</h2>
-                <p>在 ShePower，我们相信每一位女性都有无限潜能。</p>
-                <button class="btn-primary">阅读更多故事 →</button>
-            </div>
-            <div class="quote-images">
-                <img src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?w=400" alt="Story 1">
-                <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=400" alt="Story 2">
             </div>
         </div>
     </section>
 
-    <footer class="main-footer">
-        <div class="footer-top">
-            <div class="footer-subscribe">
-                <h3>订阅我们的资讯</h3>
-                <div class="subscribe-box">
-                    <input type="email" placeholder="输入您的邮箱地址">
-                    <button>订阅</button>
-                </div>
+    <!-- Mission Section[cite: 15] -->
+    <section class="mission section-padding">
+        <div class="container mission-layout">
+            <div class="mission-title fade-in">
+                <h2>为什么选择<br><span class="text-gradient">ShePower？</span></h2>
             </div>
-            <div class="footer-links">
-                <h4>快速链接</h4>
-                <ul>
-                    <li><a href="#">关于我们</a></li>
-                    <li><a href="#">常见问题</a></li>
-                    <li><a href="#">隐私政策</a></li>
-                </ul>
+            <div class="mission-text fade-in" style="transition-delay: 0.2s;">
+                <p class="lead">我们不仅仅是一个社区，我们是一场致力于激发女性潜能的社会运动。</p>
+                <p>ShePower 诞生的初衷，就是为女性建立一个安全、包容且充满能量的避风港与加速器。</p>
+                <p>通过提供多元化的资源、技能培训以及深度连接的社交网络，我们帮助女性跨越障碍，在各个领域闪耀光芒。</p>
             </div>
         </div>
-        <div class="footer-bottom">
-            <div class="footer-logo">
-                <p>© 2026 ShePower Community. 保留所有权利。</p>
-                <div class="social-icons">
-                    <i class="fab fa-facebook"></i>
+    </section>
+
+    <!-- Hover-Reveal Services[cite: 15] -->
+    <section class="services section-padding pt-0">
+        <div class="container">
+            <div class="section-header fade-in text-center">
+                <span class="subtitle">我们的核心价值观 ♡</span>
+                <h2>全方位支持和鼓励</h2>
+            </div>
+
+            <div class="interactive-grid">
+                <div class="reveal-card glass-panel fade-in hover-target">
+                    <div class="card-icon"><i class="fas fa-graduation-cap"></i></div>
+                    <h3>从内到外全面提升</h3>
+                    <div class="reveal-content">
+                        <p>推广正能量和正确的价值观，心态，让每位女生从内到外的自信和发光。</p>
+                    </div>
+                </div>
+                
+                <div class="reveal-card glass-panel fade-in hover-target" style="transition-delay: 0.1s;">
+                    <div class="card-icon"><i class="fas fa-users"></i></div>
+                    <h3>社区与支持网络</h3>
+                    <div class="reveal-content">
+                        <p>连接全球志同道合的女性，建立深度的互助圈子，分享经验，共同成长。</p>
+                    </div>
+                </div>
+                
+                <div class="reveal-card glass-panel fade-in hover-target" style="transition-delay: 0.2s;">
+                    <div class="card-icon"><i class="fas fa-briefcase"></i></div>
+                    <h3>事业发展与机会</h3>
+                    <div class="reveal-content">
+                        <p>提供每个人公平的创业机会，培训和鼓励去创造属于自己的事业和收入。</p>
+                    </div>
+                </div>
+                
+                <div class="reveal-card glass-panel fade-in hover-target" style="transition-delay: 0.3s;">
+                    <div class="card-icon"><i class="fas fa-heart"></i></div>
+                    <h3>身心健康关怀</h3>
+                    <div class="reveal-content">
+                        <p>关注女性心理健康与生活平衡，定期举办运动、技能及心理健康分享会，做你最坚实的后盾。</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Events & Stories[cite: 15] -->
+    <section class="events-stories section-padding pt-0">
+        <div class="container">
+            <div class="bento-layout">
+                
+                <!-- Left: Events Column -->
+                <div class="events-column fade-in">
+                    <div class="stack-header">
+                        <h2>精彩活动 Memory</h2>
+                        <a href="activity/activity.html" class="hover-target">查看活动日历 &rarr;</a>
+                    </div>
+                    
+                    <!-- Dynamic Events Container -->
+                    <div id="homeEventsContainer">
+                        <!-- JS will inject top 3 events here -->
+                    </div>
+                </div>
+
+                <!-- Right: Story Card[cite: 15] -->
+                <div class="story-column glass-panel fade-in" style="transition-delay: 0.2s;">
+                    <div class="story-content">
+                        <h2>每一个她的故事，都是<span class="text-gradient">改变世界的力量。</span></h2>
+                        <p>看看来自不同背景的成员们，是如何在 ShePower 的陪伴下打破常规，实现自我突破的。</p>
+                        <a href="community-member/member.html" class="btn-outline hover-target mt-3" style="text-decoration: none; display: inline-block;">阅读成员访谈</a>
+                    </div>
+                    <div class="story-image-grid">
+                        <img src="asset/first/image1.jpeg" alt="Story 1" class="hover-target">
+                        <img src="asset/first/image2.jpeg" alt="Story 2" class="hover-target">
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Section[cite: 15] -->
+    <section class="faq-section section-padding pt-0 fade-in">
+        <div class="container text-center">
+            <h2 style="margin-bottom: 40px;">常见QnA</h2>
+            <div class="faq-container">
+                <details class="faq-item glass-panel hover-target" open>
+                    <summary>ShePower 社区是免费加入的吗？ <i class="fas fa-chevron-down"></i></summary>
+                    <div class="faq-answer">
+                        <p>是的！ShePower欢迎每一位想要变好，想要改变的女孩们加入。但是社群举办的活动会因场地和内容的不同而收费。无论如何，我们保证每个活动的费用是每个人都可以轻松承担的。</p>
+                    </div>
+                </details>
+                <details class="faq-item glass-panel hover-target">
+                    <summary>我还是在校学生，可以加入吗？ <i class="fas fa-chevron-down"></i></summary>
+                    <div class="faq-answer">
+                        <p>绝对欢迎！无论您是学生，还是刚刚步入社会的职场新人，ShePower 都能为您提供匹配的资源与交流圈子。</p>
+                    </div>
+                </details>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Modal with Functional Links[cite: 15] -->
+    <div id="contact-modal" class="modal-overlay">
+        <div class="modal-content glass-panel">
+            <button class="close-modal">&times;</button>
+            <h2>联系我们 <span>Connect</span></h2>
+            <p>点击下方卡片直接与负责人联系：</p>
+            <div class="contact-methods">
+                <a href="https://wa.me/0176157314" target="_blank" class="contact-item hover-target">
+                    <i class="fab fa-whatsapp"></i>
+                    <span>WhatsApp: +60 17-615 7314 （Juann）</span>
+                </a>
+                <a href="https://www.instagram.com/shepower.tribe/?hl=en" target="_blank" class="contact-item hover-target">
                     <i class="fab fa-instagram"></i>
-                    <i class="fab fa-linkedin"></i>
+                    <span>Instagram: @shepower.tribe</span>
+                </a>
+            </div>
+            <p class="contact-note" style="margin-top: 20px; font-weight: 700; color: var(--accent-1);">期待您的加入！</p>
+        </div>
+    </div>
+
+    <!-- Footer[cite: 15] -->
+    <footer class="glass-footer">
+        <div class="container">
+            <div class="footer-nav">
+                <div class="f-brand">
+                    <div class="logo">She<span>Power</span></div>
+                    <p>赋能女性，无限可能</p>
+                    <p style="font-size: 0.8rem; margin-top: 10px;">© 2026 保留所有权利。</p>
+                </div>
+                <div class="f-links">
+                    <a href="about/about.html" class="hover-target">关于我们</a>
+                    <a href="merch/merch.html" class="hover-target">慈善</a>
+                    <a href="community-member/member.html" class="hover-target">认识成员</a>
+                </div>
+                <div class="f-socials" style="align-items: center;">
+                    <a href="https://www.instagram.com/shepower.tribe/?hl=en" class="hover-target" title="Instagram"><i class="fab fa-instagram"></i></a>
+                    <a href="https://xhslink.com/m/3bpJgKgzVRE" class="hover-target" title="Rednote" style="font-size: 1rem; font-weight: 800; text-decoration: none;">Rednote</a>
                 </div>
             </div>
         </div>
     </footer>
 
     <script src="script.js"></script>
+    
+    <!-- NEW: Script to fetch activities.json and populate Home Page -->
+    <script>
+        async function loadHomeEvents() {
+            try {
+                // Fetch the JSON file from the activity folder
+                const response = await fetch('activity/activities.json');
+                const activities = await response.json();
+                
+                // Get only the first 3 activities
+                const topActivities = activities.slice(0, 3);
+                
+                const container = document.getElementById('homeEventsContainer');
+                
+                // Inject the HTML
+                container.innerHTML = topActivities.map((act) => `
+                    <!-- Link wraps the entire card to direct to details page -->
+                    <a href="activity/activity-detail.html?id=${act.id}" class="event-card glass-panel hover-target" style="text-decoration: none; color: inherit;">
+                        <div class="date-cube">
+                            <span class="m">${act.month}月</span>
+                            <span class="d">${act.date}</span>
+                        </div>
+                        <div class="e-info">
+                            <h4 style="color: var(--text-main);">${act.title}</h4>
+                            <p><i class="far fa-calendar-alt"></i> ${act.date}-${act.month}-${act.year} | <i class="fas fa-map-marker-alt"></i> ${act.location}</p>
+                        </div>
+                        <div class="e-action"><i class="fas fa-arrow-right"></i></div>
+                    </a>
+                `).join('');
+
+            } catch (error) {
+                console.error("Failed to load activities for homepage:", error);
+            }
+        }
+
+        // Run the function when the page loads
+        document.addEventListener('DOMContentLoaded', loadHomeEvents);
+    </script>
 </body>
 </html>
