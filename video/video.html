@@ -4,84 +4,195 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>视频库 - ShePower</title>
-    <!-- Relative path to root CSS -->
     <link rel="stylesheet" href="../styles.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 
     <style>
-    /* Grid: 4 columns for a larger, high-impact look */
-    .reel-card-grid {
-        display: grid;
-        /* Increased min-width from 180px to 250px to make them bigger */
-        grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); 
-        gap: 25px; /* More space between the larger cards */
-        margin-top: 30px;
-    }
-
-    .reel-card { 
-        position: relative; 
-        overflow: hidden; 
-        aspect-ratio: 9/16; 
-        background: #000; 
-        border-radius: 20px; 
-        cursor: pointer;
-        transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275), box-shadow 0.3s ease;
-    }
-
-    .reel-card:hover { 
-        transform: translateY(-10px);
-        box-shadow: 0 20px 40px rgba(0,0,0,0.3); 
-    }
-
-    .reel-video-container { 
-        width: 100%; 
-        height: 100%; 
-        object-fit: cover; 
-    }
-
-    /* Larger Title for larger cards[cite: 3] */
-    .reel-content h3 {
-        display: -webkit-box;
-        -webkit-line-clamp: 2;
-        -webkit-box-orient: vertical;  
-        overflow: hidden;
-        text-overflow: ellipsis;
-        line-height: 1.4;
-        font-size: 1.1rem; /* Restored size for better readability[cite: 3] */
-        color: white;
-        margin: 0;
-        text-shadow: 0 2px 8px rgba(0,0,0,0.9);
-    }
-
-    .reel-content {
-        position: absolute;
-        bottom: 20px;
-        left: 15px;
-        right: 15px;
-        z-index: 2;
-    }
-
-    /* Video Expand Modal - Fixed to ensure it is hidden by default[cite: 3] */
-    .video-modal {
-        position: fixed;
-        top: 0; left: 0; width: 100%; height: 100%;
-        background: rgba(0,0,0,0.95);
-        display: none; /* Stays hidden until 'active' class is added[cite: 3] */
-        justify-content: center;
-        align-items: center;
-        z-index: 9999;
-        padding: 20px;
-    }
-    .video-modal.active { display: flex; }
-
-    /* Desktop forced 4-column split[cite: 3] */
-    @media (min-width: 1200px) {
-        .reel-card-grid {
-            grid-template-columns: repeat(4, 1fr); 
+        /* Modern 4-Column Grid */
+        .video-card-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); 
+            gap: 30px;
+            margin-top: 40px;
         }
-    }
-</style>
+
+        /* --- CREATIVE INTERACTIVE CARD DESIGN --- */
+        .video-card { 
+            background: var(--glass-bg);
+            border: 1px solid var(--glass-border);
+            border-radius: 24px;
+            padding: 16px; 
+            display: flex;
+            flex-direction: column;
+            cursor: pointer;
+            box-shadow: var(--glass-shadow);
+            transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+            position: relative;
+            overflow: hidden;
+        }
+
+        /* Neon Glow Shadow on Hover */
+        .video-card:hover { 
+            transform: translateY(-12px);
+            border-color: var(--accent-1);
+            box-shadow: 0 20px 40px rgba(255, 46, 147, 0.15); 
+        }
+
+        /* Image Wrapper */
+        .vc-img-wrapper {
+            width: 100%;
+            aspect-ratio: 9/16; 
+            border-radius: 16px;
+            overflow: hidden;
+            position: relative;
+            background: #111;
+            margin-bottom: 20px;
+            /* Added perspective for 3D feel */
+            perspective: 1000px; 
+        }
+
+        /* Blurred Background */
+        .vc-img-blur {
+            position: absolute;
+            inset: -20px; 
+            background-size: cover;
+            background-position: center;
+            filter: blur(15px);
+            opacity: 0.5;
+            z-index: 0;
+            transition: all 0.6s ease;
+        }
+
+        .video-card:hover .vc-img-blur {
+            transform: scale(1.15); 
+            opacity: 0.8; /* Brightens the background aura on hover */
+        }
+
+        /* Actual Thumbnail */
+        .vc-img-wrapper img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain; 
+            position: relative;
+            z-index: 1;
+            transition: all 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        /* 3D Pop-Out Effect on Hover */
+        .video-card:hover .vc-img-wrapper img {
+            transform: scale(1.08) translateY(-5px); 
+            filter: drop-shadow(0 10px 20px rgba(0,0,0,0.5));
+        }
+
+        /* Continuous Sonar Pulse Animation */
+        @keyframes pulse-ring {
+            0% { transform: translate(-50%, -50%) scale(0.8); opacity: 0.8; }
+            100% { transform: translate(-50%, -50%) scale(1.6); opacity: 0; }
+        }
+
+        /* Floating Play Button */
+        .vc-play-btn {
+            position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);
+            width: 60px; height: 60px; 
+            background: rgba(255,255,255,0.25); backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px);
+            border: 2px solid rgba(255,255,255,0.8); border-radius: 50%;
+            display: flex; align-items: center; justify-content: center; 
+            color: white; font-size: 1.5rem; z-index: 2;
+            transition: all 0.4s ease;
+        }
+
+        /* The Pulse Ring */
+        .vc-play-btn::before {
+            content: ''; position: absolute; top: 50%; left: 50%;
+            width: 100%; height: 100%;
+            border: 2px solid rgba(255, 255, 255, 0.6);
+            border-radius: 50%;
+            animation: pulse-ring 2s infinite cubic-bezier(0.215, 0.61, 0.355, 1);
+        }
+
+        .video-card:hover .vc-play-btn {
+            background: var(--gradient-primary);
+            border-color: transparent;
+            transform: translate(-50%, -50%) scale(1.15);
+            box-shadow: 0 10px 25px rgba(255, 46, 147, 0.4);
+        }
+        
+        .video-card:hover .vc-play-btn::before {
+            border-color: var(--accent-1); /* Pulse turns pink on hover */
+        }
+
+        /* Tidy Text Content */
+        .vc-content {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            flex-grow: 1;
+            padding-bottom: 10px;
+        }
+
+        .vc-category {
+            background: var(--bg-base);
+            border: 1px solid var(--glass-border);
+            color: var(--accent-1);
+            padding: 4px 14px;
+            border-radius: 20px;
+            font-size: 0.75rem;
+            font-weight: 800;
+            margin-bottom: 12px;
+            transition: all 0.4s ease;
+        }
+
+        .video-card:hover .vc-category {
+            background: var(--gradient-primary);
+            color: white;
+            border-color: transparent;
+        }
+
+        .vc-title {
+            font-size: 1.15rem; 
+            color: var(--text-main); 
+            margin: 0; 
+            font-weight: 800; 
+            line-height: 1.4;
+            transition: color 0.3s ease;
+        }
+
+        /* Slide-Up Action Text */
+        .vc-action-text {
+            font-size: 0.85rem;
+            font-weight: 700;
+            color: var(--accent-1);
+            opacity: 0;
+            transform: translateY(15px);
+            transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+            height: 0; /* Keeps layout stable */
+            margin-top: 0;
+        }
+
+        .video-card:hover .vc-action-text {
+            opacity: 1;
+            transform: translateY(0);
+            height: auto;
+            margin-top: 12px;
+        }
+
+        /* Video Expand Modal */
+        .video-modal {
+            position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+            background: rgba(0,0,0,0.95); display: none; justify-content: center; align-items: center; z-index: 9999; padding: 20px;
+            opacity: 0; transition: opacity 0.3s ease;
+        }
+        .video-modal.active { display: flex; opacity: 1; }
+        .video-modal-content { position: relative; width: 100%; max-width: 450px; aspect-ratio: 9/16; transform: scale(0.9); transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1); }
+        .video-modal.active .video-modal-content { transform: scale(1); }
+        .video-modal iframe { width: 100%; height: 100%; border-radius: 20px; border: none; box-shadow: 0 20px 50px rgba(0,0,0,0.5); }
+        .close-video { position: absolute; top: -50px; right: 0; background: rgba(255,255,255,0.1); border-radius: 50%; width: 40px; height: 40px; display: flex; align-items: center; justify-content: center; border: none; color: white; font-size: 1.8rem; cursor: pointer; transition: background 0.3s ease; }
+        .close-video:hover { background: var(--accent-1); }
+
+        @media (min-width: 1200px) { .video-card-grid { grid-template-columns: repeat(4, 1fr); } }
+    </style>
 </head>
 <body>
 
@@ -91,7 +202,6 @@
     <div class="aura aura-2"></div>
     <div class="aura aura-3"></div>
 
-    <!-- Navigation Bar with correct GitHub pathing[cite: 3] -->
     <header class="navbar glass-panel-nav">
         <div class="container nav-container">
             <div class="logo">She<span>Power</span></div>
@@ -123,25 +233,32 @@
 
     <section class="video-grid-section section-padding pt-0">
         <div class="container">
-            <div class="reel-card-grid" id="videoContainer"></div>
+            <div class="video-card-grid" id="videoContainer"></div>
         </div>
     </section>
 
-    <!-- Modal for Playback[cite: 3] -->
+    <!-- Modal for Playback -->
     <div id="video-expand-modal" class="video-modal">
         <div class="video-modal-content">
-            <button class="close-video" onclick="closeVideoModal()">&times;</button>
-            <video id="expanded-video" controls playsinline><source src="" type="video/mp4"></video>
+            <button class="close-video hover-target" onclick="closeVideoModal()">&times;</button>
+            <iframe id="expanded-video" src="" allowfullscreen></iframe>
         </div>
     </div>
 
-    <!-- Modal for Join Us[cite: 1] -->
+    <!-- Contact Modal -->
     <div id="contact-modal" class="modal-overlay">
         <div class="modal-content glass-panel">
             <button class="close-modal">&times;</button>
-            <h2>加入我们 <span>Join Us</span></h2>
+            <h2>联系我们 <span>Connect</span></h2>
             <div class="contact-methods">
-                <a href="#" class="contact-item hover-target"><i class="fab fa-instagram"></i> <span>Instagram 联系</span></a>
+                <a href="https://wa.me/0176157314" target="_blank" class="contact-item hover-target">
+                    <i class="fab fa-whatsapp"></i>
+                    <span>WhatsApp: +60 17-615 7314 （Juann）</span>
+                </a>
+                <a href="https://www.instagram.com/shepower.tribe/?hl=en" target="_blank" class="contact-item hover-target">
+                    <i class="fab fa-instagram"></i>
+                    <span>Instagram: @shepower.tribe</span>
+                </a>
             </div>
         </div>
     </div>
@@ -150,55 +267,87 @@
     <script>
         let videoData = [];
 
-        // GitHub friendly fetch[cite: 3]
         async function loadVideos() {
             try {
                 const response = await fetch('videos.json'); 
                 videoData = await response.json();
                 displayVideos(videoData);
             } catch (e) {
-                console.error("Could not load JSON. Ensure you are using a server or hosting.", e);
+                console.error("Failed to load videos:", e);
             }
+        }
+
+        function getEmbedUrl(url) {
+            if (url && url.includes('instagram.com/reel/')) {
+                const baseUrl = url.split('?')[0]; 
+                return baseUrl.endsWith('/') ? baseUrl + 'embed/' : baseUrl + '/embed/';
+            }
+            return url;
         }
 
         function displayVideos(data) {
             const container = document.getElementById('videoContainer');
-            container.innerHTML = data.map((video, index) => `
-                <div class="reel-card hover-target fade-in-up visible" onclick="openVideoModal('${video.videoUrl}')" style="transition-delay: ${index * 0.1}s">
-                    <video class="reel-video-container" loop muted playsinline preload="metadata">
-                        <source src="${video.videoUrl}" type="video/mp4">
-                    </video>
-                    <div class="reel-play-btn"><i class="fas fa-play"></i></div>
-                    <div class="reel-content">
-                        <h3>${video.title}</h3>
-                    </div>
-                </div>
-            `).join('');
-            setupVideoHover();
-        }
+            container.innerHTML = data.map((video, index) => {
+                const embedUrl = getEmbedUrl(video.videoUrl);
+                
+                const blurBg = video.thumbnail 
+                    ? `background-image: url('${video.thumbnail}');`
+                    : `background: var(--gradient-primary);`;
 
-        function setupVideoHover() {
-            document.querySelectorAll('.reel-card').forEach(card => {
-                const video = card.querySelector('video');
-                card.addEventListener('mouseenter', () => video.play());
-                card.addEventListener('mouseleave', () => { video.pause(); video.currentTime = 0; });
-            });
+                const imageTag = video.thumbnail 
+                    ? `<img src="${video.thumbnail}" alt="${video.title}">`
+                    : ``;
+
+                return `
+                <div class="video-card hover-target fade-in-up visible" onclick="openVideoModal('${embedUrl}')" style="transition-delay: ${index * 0.1}s;">
+                    
+                    <div class="vc-img-wrapper">
+                        <div class="vc-img-blur" style="${blurBg}"></div>
+                        ${imageTag}
+                        <div class="vc-play-btn">
+                            <i class="fas fa-play" style="margin-left: 4px;"></i>
+                        </div>
+                    </div>
+                    
+                    <div class="vc-content">
+                        <span class="vc-category">${video.category}</span>
+                        <h3 class="vc-title">${video.title}</h3>
+                        
+                        <!-- NEW: Slide-up action text -->
+                        <div class="vc-action-text"><i class="fas fa-play-circle"></i> 点击播放</div>
+                    </div>
+
+                </div>
+            `}).join('');
         }
 
         function openVideoModal(url) {
             const modal = document.getElementById('video-expand-modal');
-            const video = document.getElementById('expanded-video');
-            video.src = url;
-            modal.classList.add('active');
-            video.play();
+            const iframe = document.getElementById('expanded-video');
+            iframe.src = url;
+            
+            // Allow display block to apply before adding opacity class for smooth fade
+            modal.style.display = 'flex';
+            setTimeout(() => {
+                modal.classList.add('active');
+            }, 10);
+            
+            document.body.style.overflow = 'hidden'; 
         }
 
         function closeVideoModal() {
             const modal = document.getElementById('video-expand-modal');
-            const video = document.getElementById('expanded-video');
+            const iframe = document.getElementById('expanded-video');
+            
             modal.classList.remove('active');
-            video.pause();
-            video.src = "";
+            
+            // Wait for fade out transition before hiding
+            setTimeout(() => {
+                modal.style.display = 'none';
+                iframe.src = ""; 
+            }, 300);
+            
+            document.body.style.overflow = 'auto'; 
         }
 
         function filterVideos(category) {
@@ -207,10 +356,18 @@
             displayVideos(filtered);
         }
 
-        loadVideos();
+        window.addEventListener('DOMContentLoaded', () => {
+            const modal = document.getElementById('video-expand-modal');
+            modal.addEventListener('click', function(e) {
+                if (e.target === modal) closeVideoModal();
+            });
+            document.addEventListener('keydown', (e) => {
+                if (e.key === "Escape") closeVideoModal();
+            });
+            loadVideos();
+        });
     </script>
 
-        <!-- Footer[cite: 15] -->
     <footer class="glass-footer">
         <div class="container">
             <div class="footer-nav">
@@ -220,9 +377,9 @@
                     <p style="font-size: 0.8rem; margin-top: 10px;">© 2026 保留所有权利。</p>
                 </div>
                 <div class="f-links">
-                    <a href="about/about.html" class="hover-target">关于我们</a>
-                    <a href="merch/merch.html" class="hover-target">慈善</a>
-                    <a href="community-member/member.html" class="hover-target">认识成员</a>
+                    <a href="../about/about.html" class="hover-target">关于我们</a>
+                    <a href="../merch/merch.html" class="hover-target">慈善</a>
+                    <a href="../community-member/member.html" class="hover-target">认识成员</a>
                 </div>
                 <div class="f-socials" style="align-items: center;">
                     <a href="https://www.instagram.com/shepower.tribe/?hl=en" class="hover-target" title="Instagram"><i class="fab fa-instagram"></i></a>
