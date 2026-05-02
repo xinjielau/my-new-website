@@ -4,92 +4,143 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>活动中心 - ShePower</title>
-    <link rel="stylesheet" href="activity-styles.css">
+    <link rel="stylesheet" href="../styles.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        .activity-card-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 30px; }
+        .activity-card { text-decoration: none; color: inherit; display: block; border-radius: 20px; overflow: hidden; transition: transform 0.4s ease; }
+        .activity-card:hover { transform: translateY(-10px); }
+        @media (min-width: 1200px) { .activity-card-grid { grid-template-columns: repeat(4, 1fr); } }
+    </style>
 </head>
 <body>
+    <!-- Restored all 3 Auras from about.html -->
+    <div class="cursor-dot"></div>
+    <div class="cursor-outline"></div>
+    <div class="aura aura-1"></div>
+    <div class="aura aura-2"></div>
+    <div class="aura aura-3"></div>
 
-    <header>
-        <nav class="navbar">
-            <div class="logo">ShePower</div>
+    <header class="navbar glass-panel-nav">
+        <div class="container nav-container">
+            <div class="logo">She<span>Power</span></div>
             <ul class="nav-links">
-                <li><a href="../index.html">首页</a></li>
-                <li><a href="activity.html" class="active">活动</a></li>
-                <li><a href="#">社区成员</a></li>
-                <li><a href="#">视频</a></li>
-                <li><a href="#">关于我们</a></li>
-                <li><a href="#">联系我们</a></li>
+                <li><a href="../index.html" class="hover-target">首页</a></li>
+                <li><a href="#" class="active hover-target">活动</a></li>
+                <li><a href="../community-member/member.html" class="hover-target">社区成员</a></li>
+                <li><a href="../video/video.html" class="hover-target">视频</a></li>
+                <li><a href="../merch/merch.html" class="hover-target">周边</a></li>
+                <li><a href="../about/about.html" class="hover-target">关于我们</a></li>
             </ul>
-            <button class="btn-primary">加入我们 →</button>
-        </nav>
+            <!-- Restored Theme Toggle & Join Us from about.html -->
+            <div class="nav-actions">
+                <button id="theme-toggle" class="icon-btn hover-target" title="切换主题"><i class="fas fa-moon"></i></button>
+                <button class="btn-primary hover-target btn-sm-nav join-us-trigger" style="margin-left: 15px;">加入我们 &rarr;</button>
+            </div>
+        </div>
     </header>
 
-    <section class="activity-hero">
-        <h1>活动中心</h1>
-        <div class="search-container">
-            <input type="text" id="searchInput" placeholder="搜索活动名称或地点..." onkeyup="filterActivities()">
+    <section class="activity-hero section-padding" style="padding-top: 180px; padding-bottom: 60px;">
+        <div class="container text-center">
+            <h1 style="font-size: 3.5rem; font-weight: 800;">往期<span class="text-gradient">活动</span></h1>
+            <div class="search-container" style="margin-top: 30px;">
+                <div class="glass-search">
+                    <i class="fas fa-search"></i>
+                    <input type="text" id="searchInput" placeholder="搜索活动名称或地点..." onkeyup="filterActivities()">
+                </div>
+            </div>
         </div>
     </section>
 
-    <section class="activity-grid-section">
-        <div class="activity-card-grid" id="activityContainer">
-            <p>正在加载活动...</p>
+    <section class="activity-grid-section section-padding pt-0">
+        <div class="container">
+            <div class="activity-card-grid" id="activityContainer"></div>
         </div>
     </section>
 
+    <!-- Restored Contact Modal from about.html -->
+    <div id="contact-modal" class="modal-overlay">
+        <div class="modal-content glass-panel">
+            <button class="close-modal">&times;</button>
+            <h2>加入我们 <span>Join Us</span></h2>
+            <p>通过以下方式联系我们，开启你的成长之旅：</p>
+            <div class="contact-methods">
+                <a href="https://wa.me/0176157314" target="_blank" class="contact-item hover-target">
+                    <i class="fab fa-whatsapp"></i>
+                    <span>WhatsApp: +60 17-615 7314 （Juann）</span>
+                </a>
+                <a href="https://www.instagram.com/shepower.tribe/?hl=en" target="_blank" class="contact-item hover-target">
+                    <i class="fab fa-instagram"></i>
+                    <span>Instagram: @shepower.tribe</span>
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer[cite: 15] -->
+    <footer class="glass-footer">
+        <div class="container">
+            <div class="footer-nav">
+                <div class="f-brand">
+                    <div class="logo">She<span>Power</span></div>
+                    <p>赋能女性，无限可能</p>
+                    <p style="font-size: 0.8rem; margin-top: 10px;">© 2026 保留所有权利。</p>
+                </div>
+                <div class="f-links">
+                    <a href="about/about.html" class="hover-target">关于我们</a>
+                    <a href="merch/merch.html" class="hover-target">慈善</a>
+                    <a href="community-member/member.html" class="hover-target">认识成员</a>
+                </div>
+                <div class="f-socials" style="align-items: center;">
+                    <a href="https://www.instagram.com/shepower.tribe/?hl=en" class="hover-target" title="Instagram"><i class="fab fa-instagram"></i></a>
+                    <a href="https://xhslink.com/m/3bpJgKgzVRE" class="hover-target" title="Rednote" style="font-size: 1rem; font-weight: 800; text-decoration: none;">Rednote</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Must be loaded at the very end to bind to the footer and modals! -->
+    <script src="../script.js"></script>
     <script>
         let allActivities = [];
-
-        // Fetch data from JSON
         async function fetchActivities() {
             try {
                 const response = await fetch('activities.json');
                 allActivities = await response.json();
                 renderActivities(allActivities);
-            } catch (error) {
-                console.error("加载失败:", error);
-                document.getElementById('activityContainer').innerHTML = "<p>无法加载活动，请检查 JSON 文件。</p>";
-            }
+            } catch (error) { console.error("Error:", error); }
         }
 
-        // Render cards to HTML
         function renderActivities(data) {
             const container = document.getElementById('activityContainer');
-            if (data.length === 0) {
-                container.innerHTML = "<p>没有找到相关活动。</p>";
-                return;
-            }
-
-            container.innerHTML = data.map(item => `
-                <div class="activity-card">
-                    <div class="card-image">
-                        <img src="${item.image}" alt="${item.title}">
-                    </div>
-                    <div class="card-content">
-                        <div class="card-header">
-                            <div class="card-date"><strong>${item.date}</strong><span>${item.month}</span></div>
-                            <div class="card-title-group">
-                                <h3>${item.title}</h3>
-                                <p><i class="far fa-clock"></i> ${item.time}</p>
-                                <p><i class="fas fa-map-marker-alt"></i> ${item.location}</p>
+            container.innerHTML = data.map((item, index) => `
+                <a href="activity-detail.html?id=${item.id}" class="activity-card glass-panel hover-target">
+                    <div style="height: 220px; overflow: hidden;"><img src="${item.image}" style="width: 100%; height: 100%; object-fit: cover;"></div>
+                    <div style="padding: 25px;">
+                        <div style="display: flex; gap: 15px; align-items: center; margin-bottom: 20px;">
+                            <div style="background: var(--accent-1); color: white; padding: 8px 12px; border-radius: 12px; text-align: center; min-width: 65px;">
+                                <strong style="display: block; font-size: 1.4rem; font-weight: 800;">${item.date}</strong>
+                                <span style="font-size: 0.75rem;">${item.day}</span>
+                            </div>
+                            <div>
+                                <h3 style="font-size: 1.15rem; font-weight: 800; margin: 0;">${item.title}</h3>
+                                <p style="font-size: 0.85rem; color: var(--text-muted); margin-top: 5px;">
+                                    <i class="far fa-calendar-alt"></i> ${item.date}-${item.month}-${item.year}
+                                </p>
                             </div>
                         </div>
-                        <button class="btn-primary full-width">立即报名</button>
+                        <div class="btn-outline" style="width: 100%; text-align: center;">查看回顾 &rarr;</div>
                     </div>
-                </div>
+                </a>
             `).join('');
         }
 
-        // Simple Search Function
         function filterActivities() {
-            const searchTerm = document.getElementById('searchInput').value.toLowerCase();
-            const filtered = allActivities.filter(act => 
-                act.title.toLowerCase().includes(searchTerm) || 
-                act.location.toLowerCase().includes(searchTerm)
-            );
+            const term = document.getElementById('searchInput').value.toLowerCase();
+            const filtered = allActivities.filter(a => a.title.toLowerCase().includes(term) || a.location.toLowerCase().includes(term));
             renderActivities(filtered);
         }
-
         fetchActivities();
     </script>
 </body>
