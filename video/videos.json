@@ -2,26 +2,31 @@
   {
     "title": "ShePower的创办理念 by Founder Juann",
     "category": "创立故事",
-    "videoUrl": "../asset/founder/juann.mp4"
+    "videoUrl": "https://www.instagram.com/reel/DWY0GaZCUaz/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA==",
+    "thumbnail": "../asset/founder/juann.png"
   },
   {
     "title": "合作理念 by Cofounder Sinjie",
     "category": "创立故事",
-    "videoUrl": "../asset/founder/sinjie.mp4"
+    "videoUrl": "https://www.instagram.com/reel/DWbMFTliQd7/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA==",
+    "thumbnail": "../asset/founder/sinjie.png"
   },
   {
     "title": "合作理念 by Cofounder Alice",
     "category": "创立故事",
-    "videoUrl": "../asset/founder/alice.mp4"
+    "videoUrl": "https://www.instagram.com/reel/DWgJ--YCdGH/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA==",
+    "thumbnail": "../asset/founder/alice.png"
   },
   {
     "title": "合作理念 by Cofounder Xinglin",
     "category": "创立故事",
-    "videoUrl": "../asset/founder/xinglin.mp4"
+    "videoUrl": "https://www.instagram.com/reel/DWeUfa1CYpx/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA==",
+    "thumbnail": "../asset/founder/xinglin.png"
   },
   {
     "title": "委员一起快乐玩",
     "category": "一起快乐玩",
-    "videoUrl": "../asset/founder/video1.mp4"
+    "videoUrl": "https://www.instagram.com/reel/DXtv1LEztOa/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA==",
+    "thumbnail": "../asset/founder/video1.png"
   }
 ]
