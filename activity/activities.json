@@ -10,7 +10,8 @@
     "location": "Residensi Far East",
     "image": "../asset/first/image10.jpeg",
     "description": "通过深度交流与分享，探索内在力量，学会更好地爱自己。这是一场关于自我成长与情感赋能的温馨聚会。",
-    "reel": "../asset/first/video2.mp4",
+    "reel": "https://www.instagram.com/reel/DWjNPllCY_5/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA==",
+    "thumbnail": "../asset/first/video1.png",
     "gallery": [
       "../asset/first/image1.jpeg",
       "../asset/first/image6.jpeg",
@@ -28,7 +29,8 @@
     "location": "善待福利之家, Puchong",
     "image": "../asset/orphanage/image1.jpeg",
     "description": "通过深度交流与分享，探索内在力量，学会更好地爱自己。这是一场关于自我成长与情感赋能的温馨聚会。",
-    "reel": "../asset/orphanage/video1.mp4",
+    "reel": "https://www.instagram.com/reel/DWyeIY3CRh1/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA==",
+    "thumbnail": "../asset/orphanage/video1.png",
     "gallery": [
       "../asset/orphanage/image2.jpeg",
       "../asset/orphanage/image6.jpeg",
@@ -46,7 +48,8 @@
     "location": "Taste By Champignons",
     "image": "../asset/second/image1.jpeg",
     "description": "通过深度交流与分享，探索内在力量，学会更好地爱自己。这是一场关于自我成长与情感赋能的温馨聚会。",
-    "reel": "../asset/second/video1.mp4",
+    "reel": "https://www.instagram.com/reel/DXJsvHATLhQ/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA==",
+    "thumbnail": "../asset/second/video1.png",
     "gallery": [
       "../asset/second/image4.jpeg",
       "../asset/second/image6.jpeg",
@@ -64,7 +67,8 @@
     "location": "Pickletime PJ City . PJ 51A",
     "image": "../asset/pickleball/image1.jpg",
     "description": "通过深度交流与分享，探索内在力量，学会更好地爱自己。这是一场关于自我成长与情感赋能的温馨聚会。",
-    "reel": "../asset/pickleball/video1.mp4",
+    "reel": "https://www.instagram.com/reel/DW34xfmCVWd/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA==",
+    "thumbnail": "../asset/pickleball/video1.png",
     "gallery": []
   },
   {
@@ -78,7 +82,8 @@
     "location": "Taste By Champignons",
     "image": "../asset/third/image2.jpg",
     "description": "通过深度交流与分享，探索内在力量，学会更好地爱自己。这是一场关于自我成长与情感赋能的温馨聚会。",
-    "reel": "../asset/third/video1.mp4",
+    "reel": "https://www.instagram.com/reel/DXO2SJuTTd2/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA==",
+    "thumbnail": "../asset/third/video1.png",
     "gallery": [
       "../asset/third/image5.jpg",
       "../asset/third/image3.jpg",
@@ -96,7 +101,8 @@
     "location": "Gym Paradise, Cheras",
     "image": "../asset/hyrox/image1.jpg",
     "description": "通过深度交流与分享，探索内在力量，学会更好地爱自己。这是一场关于自我成长与情感赋能的温馨聚会。",
-    "reel": "../asset/hyrox/video1.mp4",
+    "reel": "https://www.instagram.com/reel/DXYqCwHifsE/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA==",
+    "thumbnail": "../asset/hyrox/video1.png",
     "gallery": []
   }
 ]
