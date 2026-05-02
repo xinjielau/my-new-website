@@ -10,22 +10,77 @@
     <style>
         .detail-grid { display: grid; grid-template-columns: 1fr 320px; gap: 40px; margin-top: 30px; }
         
-        .detail-reel { width: 100%; aspect-ratio: 9/16; background: #000; border-radius: 20px; overflow: hidden; position: sticky; top: 100px; cursor: pointer; transition: transform 0.3s ease; }
-        .detail-reel:hover { transform: scale(1.02); }
-        .detail-reel video { width: 100%; height: 100%; object-fit: cover; }
-        
-        /* Gallery: No cropping, variable sizes */
+        /* --- NEW: Cinematic Sidebar Reel --- */
+        .detail-reel { 
+            width: 100%; aspect-ratio: 9/16; background: #111; border-radius: 20px; 
+            overflow: hidden; position: sticky; top: 100px; cursor: pointer; 
+            box-shadow: var(--glass-shadow); transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+            perspective: 1000px; /* 3D depth */
+        }
+
+        .detail-reel:hover { 
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(255, 46, 147, 0.15); 
+            border: 1px solid var(--accent-1);
+        }
+
+        /* Blurred Background */
+        .vc-img-blur {
+            position: absolute; inset: -20px; background-size: cover; background-position: center;
+            filter: blur(15px); opacity: 0.5; z-index: 0; transition: all 0.6s ease;
+        }
+
+        .detail-reel:hover .vc-img-blur { transform: scale(1.15); opacity: 0.8; }
+
+        /* Actual Thumbnail (No Cropping) */
+        .detail-reel img.reel-thumb {
+            width: 100%; height: 100%; object-fit: contain; position: relative; z-index: 1;
+            transition: all 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        .detail-reel:hover img.reel-thumb { transform: scale(1.08) translateY(-5px); filter: drop-shadow(0 10px 20px rgba(0,0,0,0.5)); }
+
+        /* Sonar Pulse Animation */
+        @keyframes pulse-ring {
+            0% { transform: translate(-50%, -50%) scale(0.8); opacity: 0.8; }
+            100% { transform: translate(-50%, -50%) scale(1.6); opacity: 0; }
+        }
+
+        /* Floating Play Button */
+        .vc-play-btn {
+            position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);
+            width: 60px; height: 60px; background: rgba(255,255,255,0.25); backdrop-filter: blur(8px);
+            border: 2px solid rgba(255,255,255,0.8); border-radius: 50%;
+            display: flex; align-items: center; justify-content: center; color: white; font-size: 1.5rem; z-index: 2;
+            transition: all 0.4s ease;
+        }
+
+        .vc-play-btn::before {
+            content: ''; position: absolute; top: 50%; left: 50%; width: 100%; height: 100%;
+            border: 2px solid rgba(255, 255, 255, 0.6); border-radius: 50%;
+            animation: pulse-ring 2s infinite cubic-bezier(0.215, 0.61, 0.355, 1);
+        }
+
+        .detail-reel:hover .vc-play-btn {
+            background: var(--gradient-primary); border-color: transparent; transform: translate(-50%, -50%) scale(1.15);
+            box-shadow: 0 10px 25px rgba(255, 46, 147, 0.4);
+        }
+
+        .detail-reel:hover .vc-play-btn::before { border-color: var(--accent-1); }
+
+        /* Gallery */
         .gallery-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px; align-items: start; }
         .gallery-grid img { width: 100%; height: auto; border-radius: 15px; box-shadow: var(--glass-shadow); }
 
         /* Video Expand Modal */
-        .video-modal { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.95); display: none; justify-content: center; align-items: center; z-index: 9999; padding: 20px; }
-        .video-modal.active { display: flex; }
-        .video-modal-content { position: relative; width: 100%; max-width: 450px; aspect-ratio: 9/16; }
-        .video-modal video { width: 100%; height: 100%; border-radius: 20px; }
-        .close-video { position: absolute; top: -40px; right: 0; background: none; border: none; color: white; font-size: 2.5rem; cursor: pointer; }
+        .video-modal { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.95); display: none; justify-content: center; align-items: center; z-index: 9999; padding: 20px; opacity: 0; transition: opacity 0.3s ease; }
+        .video-modal.active { display: flex; opacity: 1; }
+        .video-modal-content { position: relative; width: 100%; max-width: 450px; aspect-ratio: 9/16; transform: scale(0.9); transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1); }
+        .video-modal.active .video-modal-content { transform: scale(1); }
+        .video-modal iframe { width: 100%; height: 100%; border-radius: 20px; border: none; box-shadow: 0 20px 50px rgba(0,0,0,0.5); }
+        .close-video { position: absolute; top: -50px; right: 0; background: rgba(255,255,255,0.1); border-radius: 50%; width: 40px; height: 40px; display: flex; align-items: center; justify-content: center; border: none; color: white; font-size: 1.8rem; cursor: pointer; transition: background 0.3s ease; }
+        .close-video:hover { background: var(--accent-1); }
 
-        /* Keeps cursor above the video modal */
         .cursor-dot, .cursor-outline { z-index: 10001 !important; pointer-events: none; }
 
         @media (max-width: 992px) { .detail-grid { grid-template-columns: 1fr; } .detail-reel { max-width: 400px; position: static; margin: 30px auto; } }
@@ -61,12 +116,12 @@
     <!-- Video Modal for Reel Expansion -->
     <div id="video-expand-modal" class="video-modal">
         <div class="video-modal-content">
-            <button class="close-video" onclick="closeReel()">&times;</button>
-            <video id="expanded-video" controls playsinline><source src="" type="video/mp4"></video>
+            <button class="close-video hover-target" onclick="closeReel()">&times;</button>
+            <iframe id="expanded-video" src="" allowfullscreen></iframe>
         </div>
     </div>
 
-    <!-- Restored Contact Modal from about.html -->
+    <!-- Contact Modal -->
     <div id="contact-modal" class="modal-overlay">
         <div class="modal-content glass-panel">
             <button class="close-modal">&times;</button>
@@ -85,7 +140,6 @@
         </div>
     </div>
 
-    <!-- Footer[cite: 15] -->
     <footer class="glass-footer">
         <div class="container">
             <div class="footer-nav">
@@ -95,19 +149,18 @@
                     <p style="font-size: 0.8rem; margin-top: 10px;">© 2026 保留所有权利。</p>
                 </div>
                 <div class="f-links">
-                    <a href="about/about.html" class="hover-target">关于我们</a>
-                    <a href="merch/merch.html" class="hover-target">慈善</a>
-                    <a href="community-member/member.html" class="hover-target">认识成员</a>
+                    <a href="../about/about.html" class="hover-target">关于我们</a>
+                    <a href="#" class="hover-target">常见问题</a>
+                    <a href="#" class="hover-target">加入团队</a>
                 </div>
                 <div class="f-socials" style="align-items: center;">
-                    <a href="https://www.instagram.com/shepower.tribe/?hl=en" class="hover-target" title="Instagram"><i class="fab fa-instagram"></i></a>
-                    <a href="https://xhslink.com/m/3bpJgKgzVRE" class="hover-target" title="Rednote" style="font-size: 1rem; font-weight: 800; text-decoration: none;">Rednote</a>
+                    <a href="#" class="hover-target" title="Instagram"><i class="fab fa-instagram"></i></a>
+                    <a href="#" class="hover-target" title="Rednote" style="font-size: 1rem; font-weight: 800; text-decoration: none;">Rednote</a>
                 </div>
             </div>
         </div>
     </footer>
 
-    <!-- Script must be placed below the footer/modals! -->
     <script src="../script.js"></script>
     <script>
         async function loadDetail() {
@@ -118,6 +171,14 @@
                 const activity = activities.find(a => a.id === id);
                 if (activity) renderHTML(activity);
             } catch (e) { console.error(e); }
+        }
+
+        function getEmbedUrl(url) {
+            if (url && url.includes('instagram.com/reel/')) {
+                const baseUrl = url.split('?')[0]; 
+                return baseUrl.endsWith('/') ? baseUrl + 'embed/' : baseUrl + '/embed/';
+            }
+            return url;
         }
 
         function renderHTML(a) {
@@ -131,6 +192,11 @@
                         </div>
                     </div>`;
             }
+
+            const embedUrl = getEmbedUrl(a.reel);
+            
+            // MAGIC TRICK: If no thumbnail is set in activities.json, it falls back to using the main activity image as the video cover!
+            const thumbUrl = a.thumbnail ? a.thumbnail : a.image; 
 
             document.getElementById('detailContainer').innerHTML = `
                 <div class="container" style="padding-top: 150px; padding-bottom: 80px;">
@@ -147,11 +213,17 @@
                                     <p>${a.description}</p>
                                 </div>
                             </div>
-                            <div class="detail-reel hover-target" onclick="openReel('${a.reel}')">
-                                <video loop muted playsinline autoplay><source src="${a.reel}" type="video/mp4"></video>
-                                <div style="position: absolute; inset: 0; display: flex; align-items: center; justify-content: center; background: rgba(0,0,0,0.2);">
-                                    <i class="fas fa-expand" style="color: white; font-size: 2rem; opacity: 0.8;"></i>
+                            
+                            <!-- Updated Interactive Sidebar Reel -->
+                            <div class="detail-reel hover-target" onclick="openReel('${embedUrl}')">
+                                
+                                <div class="vc-img-blur" style="background-image: url('${thumbUrl}');"></div>
+                                <img src="${thumbUrl}" class="reel-thumb" alt="Video Thumbnail">
+                                
+                                <div class="vc-play-btn">
+                                    <i class="fas fa-play" style="margin-left: 4px;"></i>
                                 </div>
+
                             </div>
                         </div>
                         ${galHtml}
@@ -162,19 +234,28 @@
 
         function openReel(url) {
             const modal = document.getElementById('video-expand-modal');
-            const video = document.getElementById('expanded-video');
-            video.src = url;
-            modal.classList.add('active');
-            video.play();
+            const iframe = document.getElementById('expanded-video');
+            iframe.src = url;
+            
+            modal.style.display = 'flex';
+            setTimeout(() => {
+                modal.classList.add('active');
+            }, 10);
+            
             document.body.style.overflow = 'hidden'; 
         }
 
         function closeReel() {
             const modal = document.getElementById('video-expand-modal');
-            const video = document.getElementById('expanded-video');
+            const iframe = document.getElementById('expanded-video');
+            
             modal.classList.remove('active');
-            video.pause();
-            video.src = "";
+            
+            setTimeout(() => {
+                modal.style.display = 'none';
+                iframe.src = ""; 
+            }, 300);
+            
             document.body.style.overflow = 'auto'; 
         }
 
