@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>社区成员 - ShePower</title>
+    <link rel="stylesheet" href="../styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        /* 4-Column Grid[cite: 12] */
+        .member-card-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+        @media (min-width: 1200px) {
+            .member-card-grid { grid-template-columns: repeat(4, 1fr); }
+        }
+
+        /* --- NEW: Framed Card Layout --- */
+        .framed-card {
+            background: var(--glass-bg);
+            border: 1px solid var(--glass-border);
+            border-radius: 24px;
+            padding: 16px; /* Creates the neat frame around the image */
+            display: flex;
+            flex-direction: column;
+            box-shadow: var(--glass-shadow);
+            transition: transform 0.4s ease, border-color 0.4s ease;
+            height: 100%;
+        }
+
+        .framed-card:hover {
+            transform: translateY(-10px);
+            border-color: var(--accent-1);
+        }
+
+        /* Image Wrapper */
+        .fc-img-wrapper {
+            width: 100%;
+            height: 240px; /* Standardizes image height */
+            border-radius: 16px;
+            overflow: hidden;
+            position: relative;
+            margin-bottom: 20px;
+        }
+
+        .fc-img-wrapper img {
+            width: 100%; 
+            height: 100%; 
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+
+        .framed-card:hover .fc-img-wrapper img {
+            transform: scale(1.05); /* Slight zoom on hover */
+        }
+
+        /* Location Badge inside Image */
+        .fc-loc {
+            position: absolute;
+            top: 12px; right: 12px;
+            background: rgba(255, 255, 255, 0.9);
+            color: var(--text-main);
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size: 0.75rem;
+            font-weight: 700;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+        }
+
+        /* Content Area */
+        .fc-content {
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            flex-grow: 1;
+        }
+
+        .fc-name { font-size: 1.3rem; font-weight: 800; color: var(--text-main); margin-bottom: 2px; }
+        .fc-role { font-size: 0.9rem; font-weight: 700; color: var(--accent-1); margin-bottom: 16px; }
+        
+        .fc-quote { 
+            font-size: 0.85rem; 
+            color: var(--text-muted); 
+            line-height: 1.6; 
+            font-style: italic; 
+            flex-grow: 1; 
+            margin-bottom: 20px; 
+            padding: 0 10px;
+        }
+
+        /* Instagram Button */
+        .fc-btn {
+            background: var(--bg-base);
+            border: 1px solid var(--glass-border);
+            color: var(--text-main);
+            padding: 10px;
+            border-radius: 12px;
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 0.9rem;
+            transition: all 0.3s ease;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 6px;
+            cursor: pointer;
+        }
+
+        .framed-card:hover .fc-btn {
+            background: var(--gradient-primary);
+            color: white;
+            border-color: transparent;
+            box-shadow: 0 8px 20px rgba(255, 46, 147, 0.2);
+        }
+
+        /* Keeps cursor above the rest */
+        .cursor-dot, .cursor-outline { z-index: 10001 !important; pointer-events: none; }
+    </style>
+</head>
+<body>
+
+    <div class="cursor-dot"></div>
+    <div class="cursor-outline"></div>
+    <div class="aura aura-1"></div>
+    <div class="aura aura-2"></div>
+    <div class="aura aura-3"></div>
+
+    <header class="navbar glass-panel-nav">
+        <div class="container nav-container">
+            <div class="logo">She<span>Power</span></div>
+            <ul class="nav-links">
+                <li><a href="../index.html" class="hover-target">首页</a></li>
+                <li><a href="../activity/activity.html" class="hover-target">活动</a></li>
+                <li><a href="#" class="active hover-target">社区成员</a></li>
+                <li><a href="../video/video.html" class="hover-target">视频</a></li>
+                <li><a href="../merch/merch.html" class="hover-target">周边</a></li>
+                <li><a href="../about/about.html" class="hover-target">关于我们</a></li>
+            </ul>
+            <div class="nav-actions">
+                <button id="theme-toggle" class="icon-btn hover-target" title="切换主题"><i class="fas fa-moon"></i></button>
+                <button class="btn-primary hover-target btn-sm-nav join-us-trigger" style="margin-left: 15px;">加入我们 &rarr;</button>
+            </div>
+        </div>
+    </header>
+
+    <section class="member-hero section-padding" style="padding-top: 180px; padding-bottom: 60px;">
+        <div class="container text-center">
+            <h1 class="fade-in-up" style="font-size: clamp(2.8rem, 4vw, 4rem); font-weight: 800; margin-bottom: 16px;">
+                <span class="text-gradient">社区</span>成员
+            </h1>
+            <p class="hero-subtitle fade-in-up" style="transition-delay: 0.1s; color: var(--text-muted); font-size: 1.2rem; max-width: 600px; margin: 0 auto;">
+                加入我们充满活力的社区，认识志同道合的她们。
+            </p>
+        </div>
+    </section>
+
+    <section class="member-grid-section section-padding pt-0">
+        <div class="container">
+            <div class="member-card-grid" id="memberContainer">
+                <!-- Data will be injected here via JS -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Modal[cite: 9] -->
+    <div id="contact-modal" class="modal-overlay">
+        <div class="modal-content glass-panel">
+            <button class="close-modal">&times;</button>
+            <h2>加入我们 <span>Join Us</span></h2>
+            <p>通过以下方式联系我们，开启你的成长之旅：</p>
+            <div class="contact-methods">
+                <a href="https://wa.me/0176157314" target="_blank" class="contact-item hover-target">
+                    <i class="fab fa-whatsapp"></i>
+                    <span>WhatsApp: +60 17-615 7314 （Juann）</span>
+                </a>
+                <a href="https://www.instagram.com/shepower.tribe/?hl=en" target="_blank" class="contact-item hover-target">
+                    <i class="fab fa-instagram"></i>
+                    <span>Instagram: @shepower.tribe</span>
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer[cite: 15] -->
+    <footer class="glass-footer">
+        <div class="container">
+            <div class="footer-nav">
+                <div class="f-brand">
+                    <div class="logo">She<span>Power</span></div>
+                    <p>赋能女性，无限可能</p>
+                    <p style="font-size: 0.8rem; margin-top: 10px;">© 2026 保留所有权利。</p>
+                </div>
+                <div class="f-links">
+                    <a href="about/about.html" class="hover-target">关于我们</a>
+                    <a href="merch/merch.html" class="hover-target">慈善</a>
+                    <a href="community-member/member.html" class="hover-target">认识成员</a>
+                </div>
+                <div class="f-socials" style="align-items: center;">
+                    <a href="https://www.instagram.com/shepower.tribe/?hl=en" class="hover-target" title="Instagram"><i class="fab fa-instagram"></i></a>
+                    <a href="https://xhslink.com/m/3bpJgKgzVRE" class="hover-target" title="Rednote" style="font-size: 1rem; font-weight: 800; text-decoration: none;">Rednote</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="../script.js"></script>
+    <script>
+        async function loadMembers() {
+            try {
+                const response = await fetch('members.json');
+                const members = await response.json();
+                const container = document.getElementById('memberContainer');
+
+                // NEAT FRAMED LAYOUT
+                container.innerHTML = members.map((person, index) => `
+                    <div class="framed-card hover-target fade-in-up" style="transition-delay: ${index * 0.1}s">
+                        
+                        <div class="fc-img-wrapper">
+                            <img src="${person.image}" alt="${person.name}">
+                            <div class="fc-loc">
+                                <i class="fas fa-map-marker-alt" style="color: var(--accent-1); margin-right: 4px;"></i> ${person.location}
+                            </div>
+                        </div>
+                        
+                        <div class="fc-content">
+                            <h3 class="fc-name">${person.name}</h3>
+                            <span class="fc-role">${person.role}</span>
+                            
+                            <p class="fc-quote">
+                                <i class="fas fa-quote-left" style="color: var(--accent-1); opacity: 0.5; margin-right: 4px;"></i>
+                                ${person.quote}
+                            </p>
+                            
+                            <!-- Instagram Button using igName -->
+                            <a href="${person.instagram}" target="_blank" class="fc-btn hover-target">
+                                <i class="fab fa-instagram" style="font-size: 1.1rem;"></i> ${person.igName}
+                            </a>
+                        </div>
+
+                    </div>
+                `).join('');
+                
+                // Re-initialize intersection observers
+                const faders = document.querySelectorAll('.fade-in-up');
+                const appearOnScroll = new IntersectionObserver(function(entries, observer) {
+                    entries.forEach(entry => {
+                        if (entry.isIntersecting) {
+                            entry.target.classList.add('visible');
+                            observer.unobserve(entry.target);
+                        }
+                    });
+                }, { threshold: 0.1, rootMargin: "0px 0px -50px 0px" });
+                faders.forEach(fader => appearOnScroll.observe(fader));
+
+            } catch (e) {
+                console.error("Error loading members:", e);
+            }
+        }
+        loadMembers();
+    </script>
+</body>
+</html>

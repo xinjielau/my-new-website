@@ -1,0 +1,74 @@
+[
+  {
+    "name": "Juann Tiew",
+    "igName": "3.14_nn", 
+    "role": "QA Trainer",
+    "location": "Johor",
+    "quote": "在 ShePower 遇见了更好的自己，希望能把这份力量传递下去。",
+    "image": "../asset/member/juann.png",
+    "instagram": "https://www.instagram.com/3.14_nn/?hl=en"
+  },
+  {
+    "name": "Alice",
+    "igName": "aliceyaujiayi", 
+    "role": "小学老师",
+    "location": "Johor",
+    "quote": "在 ShePower 遇见了更好的自己，希望能把这份力量传递下去。",
+    "image": "../asset/member/alice.png",
+    "instagram": "https://www.instagram.com/aliceyaujiayi/?hl=en"
+  },
+  {
+    "name": "Apple",
+    "igName": "appleyauuu_", 
+    "role": "小学老师",
+    "location": "Johor",
+    "quote": "在 ShePower 遇见了更好的自己，希望能把这份力量传递下去。",
+    "image": "../asset/member/apple.jpg",
+    "instagram": "https://www.instagram.com/appleyauuu_/?hl=en"
+  },
+  {
+    "name": "Biby",
+    "igName": "bibyng", 
+    "role": "International Purchaser",
+    "location": "Johor",
+    "quote": "在 ShePower 遇见了更好的自己，希望能把这份力量传递下去。",
+    "image": "../asset/member/biby.jpeg",
+    "instagram": "https://www.instagram.com/bibyng/?hl=en"
+  },
+  {
+    "name": "Jessie Yap",
+    "igName": "jessycz_", 
+    "role": "全职妈妈",
+    "location": "Selangor",
+    "quote": "在 ShePower 遇见了更好的自己，希望能把这份力量传递下去。",
+    "image": "../asset/member/jessie yap.png",
+    "instagram": "https://www.instagram.com/jessycz_/?hl=en"
+  },
+  {
+    "name": "Sinjie",
+    "igName": "gsinjie63", 
+    "role": "Accountant",
+    "location": "Johor",
+    "quote": "在 ShePower 遇见了更好的自己，希望能把这份力量传递下去。",
+    "image": "../asset/member/sinjie.png",
+    "instagram": "https://www.instagram.com/gsinjie63/?hl=en"
+  },
+  {
+    "name": "Xinglin",
+    "igName": "xinglinh", 
+    "role": "Degree Student",
+    "location": "Selengor",
+    "quote": "在 ShePower 遇见了更好的自己，希望能把这份力量传递下去。",
+    "image": "../asset/member/xinglin.png",
+    "instagram": "https://www.instagram.com/xinglinh/?hl=en"
+  },
+  {
+    "name": "Xinjie",
+    "igName": "xinjielau", 
+    "role": "Software Developer",
+    "location": "Perak",
+    "quote": "在 ShePower 遇见了更好的自己，希望能把这份力量传递下去。",
+    "image": "../asset/member/xinjie.jpg",
+    "instagram": "https://www.instagram.com/xinjielau/?hl=en"
+  }
+]
